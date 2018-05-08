@@ -4,13 +4,10 @@ const Schema   = mongoose.Schema;
 const BeetingHouseSchema = new Schema({
     acount: [
         {
-          bettingHouse:Array,
-          bank: Array,
+          bettingHouse: String,
+          bank: Number,
         }
     ]
-
 });
-
-    const BettingHouse = mongoose.model('BettingHouse', BettingSchema);
-    module.exports = BettingHouse;
+    module.exports = mongoose.model('BettingHouse', BeetingHouseSchema);
     

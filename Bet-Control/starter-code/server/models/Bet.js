@@ -11,5 +11,5 @@ const BetSchema = new Schema({
     parcialGain:{ type: Number, default: null },
 });
 
-    const BettingHouse = mongoose.model('BettingHouse', BettingSchema);
-    module.exports = BettingHouse;
+    const Bet = mongoose.model('bet', BetSchema);
+    module.exports = Bet;
