@@ -11,12 +11,8 @@ const Bet = require('../models/Bet.js');
 
   const bettingHouses = [
     {
-        acount: [
-            {
-              bettingHouse:"Bet365",
-              bank:100
-            },
-        ]
+       name:"Sportium",
+       bank:200
     },
    ]
 
@@ -25,24 +21,24 @@ const Bet = require('../models/Bet.js');
     if (err) { throw(err) }
     console.log(`created ${bettingHouses.length} bettingHouses`);
     
-  console.log(house)
   });
-  var house = BettingHouse._id;
+  const house = BettingHouse._id;
 
    const users = [
     {
         username: "Jose",
         email: "jose@jose.com",
         password: "1234",
-        bettingHouse: house,
+        bettingHouse: ['5af2c1fd22d09829631829a9'],
     },
 
   ]
    const bets = [
     {
-    bettingHouse: house,
+    bettingHouse: '5af2c1fd22d09829631829a9',
     sport:"Futbol",
     betDescription:"Real Madrid vence al Sevilla",
+    status:"Pending",
     moneyBet:10,
     bettingFee:2,
     totalGain:0,

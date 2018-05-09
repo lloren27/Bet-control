@@ -1,3 +1,4 @@
+
 const express      = require('express');
 const path         = require('path');
 const favicon      = require('serve-favicon');
@@ -12,7 +13,7 @@ const passport     = require('passport');
 const configure    = require('./config/passport.js');
 const cors = require("cors");
 
-mongoose.connect('mongodb://localhost/forum-development');
+mongoose.connect('mongodb://localhost/Bet-control-database');
 
 const app = express();
 const whitelist = ["http://localhost:4200"];
@@ -26,7 +27,7 @@ var corsOptions = {
 };
 
 app.use(session({
-  secret: "forum-app",
+  secret: "betcontrol-app",
   resave: true,
   saveUninitialized: true,
   store: new MongoStore({ mongooseConnection: mongoose.connection })
@@ -51,8 +52,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
 
+const BettingHouse = require('./models/BettingHouse');
+const Bet = require('./models/Bet')
+const authRoutes = require('./routes/authentication');
 const index = require('./routes/index');
+
 app.use('/', index);
+app.use('/', authRoutes);
+app.use('/api/bettingHouse', require('./routes/crud')(BettingHouse));
+app.use('/api/bet', require('./routes/bets'));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

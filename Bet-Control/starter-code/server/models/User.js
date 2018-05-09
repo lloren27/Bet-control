@@ -6,7 +6,7 @@ const UserSchema = new Schema({
   username: String,
   email: String,
   password: String,
-  bettingHouse:{ type: Schema.Types.ObjectId, ref: 'BettingHouse' },
+  bettingHouse:[{ type: Schema.Types.ObjectId, ref: 'BettingHouse' }],
 });
 
 UserSchema.methods.generateHash = function(password) {
