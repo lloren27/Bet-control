@@ -7,12 +7,12 @@ const crud = require('./crud');
 
 //listar las apuestas;
 
-router.get('/bybettinghouse/:id', (req, res) => {
-  Bet.find({
-    bettinghouse_id: req.params.id
-  }).then(bets => {
+router.get('/', (req, res) => {
+  Bet.find({},(err, bets) => {
+    if (err) { return res.json(err).status(500); }
     return res.json(bets);
-  })
+  });
+  
 })
 // Updatebank  
 router.post("/newbet/:id", (req, res, next) => {
@@ -30,6 +30,7 @@ router.post("/newbet/:id", (req, res, next) => {
           BettingHouse.findByIdAndUpdate(bettingHouseId, update).then(bettinghouse => {
             bettinghouse.bank = newbank;
             console.log("NEW", bettinghouse)
+            return res.json(`Tu apuesta se ha realizado, el saldo de tu cuenta es ${newbank}`);
           })
         })
     })
@@ -48,7 +49,8 @@ router.post("/certificatedBetWin/:id", (req, res, next) => {
         .then(bettinghouse => {
 
           //console.log("2", bettinghouse)
-          const newbank = bettinghouse.bank + (bet.moneyBet * bet.bettingFee)
+          const totalGain = bet.moneyBet * bet.bettingFee
+          const newbank = bettinghouse.bank + (totalGain)
           //console.log(newbank)
           const bank = newbank;
           const update = {
@@ -58,12 +60,12 @@ router.post("/certificatedBetWin/:id", (req, res, next) => {
           BettingHouse.findByIdAndUpdate(bettingHouseId, update).then(bettinghouse => {
             bettinghouse.bank = newbank;
             console.log("WIN", bettinghouse)
+            Bet.findByIdAndUpdate(betId, update1).then(bet => {
+              bet.status = update1.status
+              console.log("WINSTATUS", bet)
+              return res.json(`Has ganado la apuesta , ingresas ${totalGain}`)
+            })
           })
-          Bet.findByIdAndUpdate(betId, update1).then(bet => {
-            bet.status = update1.status
-            console.log("WINSTATUS", bet)
-          })
-
         })
     })
 })
@@ -79,18 +81,19 @@ router.post("/certificatedCashOut/:id", (req, res, next) => {
     .then(bet => {
       const bettingHouseId = bet.bettingHouse
       const newbank = (parseInt(bet.bettingHouse.bank) + parseInt(cashOut))
-      console.log(newbank)
+      //console.log(newbank)
       const update = {
         bank: parseInt(newbank)
       };
-      console.log(update)
-      BettingHouse.findByIdAndUpdate(bettingHouseId, update).then(bettinghouse => {
-        bettinghouse.bank = update.bank;
-       // console.log("CASH OUT", bettinghouse)
-      })
       Bet.findByIdAndUpdate(betId, update1).then(bet => {
         bet.status = update1.status
-       console.log("CASH OUT STATUS", bet)
+        console.log("CASH OUT STATUS", bet)
+        BettingHouse.findByIdAndUpdate(bettingHouseId, update).then(bettinghouse => {
+          bettinghouse.bank = update.bank;
+          console.log("CASH OUT", bettinghouse)
+          return res.json(`Has retirado tu apuesta antes de tiempo y has ingresado ${cashOut}`)
+        })
+
       })
     })
 
@@ -105,6 +108,7 @@ router.post("/certificatedFailed/:id", (req, res, next) => {
     console.log(bet, update)
     bet.status = update.status
     console.log("LOSE", bet)
+    return res.json(`Has fallado la apuesta`)
   }).catch(e => console.log(e))
 
 })
