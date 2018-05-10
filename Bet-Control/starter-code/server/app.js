@@ -55,7 +55,7 @@ app.use(layouts);
 
 app.use((req, res, next) => {
   res.locals.user = req.user;
-  //console.log(res.locals.user)
+  console.log("EN EL MIDDLEWARE", res.locals.user)
   next();
 })
 

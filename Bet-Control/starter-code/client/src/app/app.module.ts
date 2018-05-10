@@ -9,6 +9,11 @@ import { AppComponent } from './app.component';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
 import { AuthSignupComponent } from './auth-signup/auth-signup.component';
 import { ClarityModule } from "@clr/angular";
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { BettinghousesService } from "./services/bettinghouses.service";
+import { UserBetsComponent } from './user-bets/user-bets.component';
+import { BetsService } from "./services/bets.service";
+import { MainComponent } from './main/main.component';
 
 
 @NgModule({
@@ -16,7 +21,9 @@ import { ClarityModule } from "@clr/angular";
     AppComponent,
     AuthLoginComponent,
     AuthSignupComponent,
-
+    UserProfileComponent,
+    UserBetsComponent,
+    MainComponent
 ],
   imports: [
     BrowserModule,
@@ -25,7 +32,7 @@ import { ClarityModule } from "@clr/angular";
     HttpModule,
     ClarityModule
   ],
-  providers: [SessionService],
+  providers: [SessionService,BettinghousesService,BetsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

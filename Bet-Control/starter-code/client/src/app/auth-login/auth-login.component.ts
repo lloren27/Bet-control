@@ -20,7 +20,7 @@ export class AuthLoginComponent implements OnInit {
 
   login() {
     this.sessionService.login(this.user).subscribe(() => {
-       this.router.navigate(["/"]);
+       this.router.navigate(["/profile"]);
     });
   }
 }

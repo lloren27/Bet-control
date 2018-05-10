@@ -9,7 +9,7 @@ import { Observable } from "rxjs/Rx";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'My primer foro';
+  title = 'Bet-Control';
   constructor(public sessionService: SessionService) {
     this.sessionService.userEvent.subscribe(user => {
       console.log("USER EVENT");

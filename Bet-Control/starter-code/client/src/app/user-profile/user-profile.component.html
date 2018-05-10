@@ -1,0 +1,19 @@
+<div *ngIf="sessionService.user">
+    <h1>Welcome {{sessionService.user.username}}</h1> 
+    
+    <button>Añadir Casas de apuestas</button>
+    <h2>Mis Casas de Apuestas</h2>
+    <div class="bhouses">
+        <div class="bhouse" *ngFor="let bhouse of bettingHouses">
+          <h3> {{ bhouse.name }} </h3>
+          <p>Banco:{{ bhouse.bank }}€ </p>
+          <!-- <a [routerLink]="['bettingHouses', bettingHouse._id]"> Ver Detalles </a> -->
+        </div>
+      </div>
+
+   
+    <button (click)="gotoBets()"> Ver Mis Apuestas </button>
+
+
+    <button (click)="sessionService.logout().subscribe()">Logout</button>
+</div>

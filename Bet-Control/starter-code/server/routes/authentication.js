@@ -72,6 +72,7 @@ router.post("/logout", function(req, res) {
 
 router.get("/loggedin", function(req, res) {
   if(req.isAuthenticated()) {
+    res.locals.user = req.user;
     return res.status(200).json(req.user);
   }
 

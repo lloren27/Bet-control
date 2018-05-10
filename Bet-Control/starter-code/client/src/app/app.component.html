@@ -1,7 +1,4 @@
-<div *ngIf="!sessionService.user">
-    <button [routerLink]="['/login']">LOGIN</button>
-    <button [routerLink]="['/signup']">SIGNUP</button>
-  </div>
+
   
   <div *ngIf="sessionService.user">
     <h1>Welcome {{sessionService.user.username}}</h1>
