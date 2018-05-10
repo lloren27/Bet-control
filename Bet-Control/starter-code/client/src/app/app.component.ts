@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { SessionService } from "./services/session.service";
 import { Observable } from "rxjs/Rx";
+import { Router } from "@angular/router";
+
 
 
 @Component({
@@ -10,7 +12,7 @@ import { Observable } from "rxjs/Rx";
 })
 export class AppComponent {
   title = 'Bet-Control';
-  constructor(public sessionService: SessionService) {
+  constructor(public sessionService: SessionService, public router: Router) {
     this.sessionService.userEvent.subscribe(user => {
       console.log("USER EVENT");
       if (user) {
@@ -22,6 +24,10 @@ export class AppComponent {
   }
 
   ngOnInit() {}
-
+  logout() {
+    this.sessionService.logout().subscribe(() => {
+      this.router.navigate(["/"]);
+    });
+  }
 }
 

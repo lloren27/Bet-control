@@ -2,8 +2,7 @@
   
   <div *ngIf="sessionService.user">
     <h1>Welcome {{sessionService.user.username}}</h1>
-    
-    <button (click)="sessionService.logout().subscribe()">Logout</button>
+    <button (click)="logout()">LOGOUT</button>
   </div>
 
 <router-outlet></router-outlet>

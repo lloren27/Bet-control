@@ -14,6 +14,7 @@ import { BettinghousesService } from "./services/bettinghouses.service";
 import { UserBetsComponent } from './user-bets/user-bets.component';
 import { BetsService } from "./services/bets.service";
 import { MainComponent } from './main/main.component';
+import { NewbettinghouseComponent } from './newbettinghouse/newbettinghouse.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { MainComponent } from './main/main.component';
     AuthSignupComponent,
     UserProfileComponent,
     UserBetsComponent,
-    MainComponent
+    MainComponent,
+    NewbettinghouseComponent
 ],
   imports: [
     BrowserModule,

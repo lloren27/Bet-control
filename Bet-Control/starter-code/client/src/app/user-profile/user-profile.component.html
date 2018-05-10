@@ -1,7 +1,7 @@
-<div *ngIf="sessionService.user">
-    <h1>Welcome {{sessionService.user.username}}</h1> 
+<!-- <div *ngIf="sessionService.user"> -->
+    <!-- <h1>Welcome {{sessionService.user.username}}</h1>  -->
     
-    <button>Añadir Casas de apuestas</button>
+    <button [routerLink]="['/bettingHouse/new']">Añadir casas de apuesta</button>
     <h2>Mis Casas de Apuestas</h2>
     <div class="bhouses">
         <div class="bhouse" *ngFor="let bhouse of bettingHouses">
@@ -14,6 +14,5 @@
    
     <button (click)="gotoBets()"> Ver Mis Apuestas </button>
 
-
-    <button (click)="sessionService.logout().subscribe()">Logout</button>
-</div>
+    <!-- <button (click)="logout()">LOGOUT</button> -->
+<!-- </div> -->
