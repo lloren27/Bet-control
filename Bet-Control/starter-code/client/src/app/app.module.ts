@@ -8,7 +8,7 @@ import {routes} from './routes';
 import { AppComponent } from './app.component';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
 import { AuthSignupComponent } from './auth-signup/auth-signup.component';
-
+import { ClarityModule } from "@clr/angular";
 
 
 @NgModule({
@@ -23,6 +23,7 @@ import { AuthSignupComponent } from './auth-signup/auth-signup.component';
     RouterModule.forRoot(routes),
     FormsModule,
     HttpModule,
+    ClarityModule
   ],
   providers: [SessionService],
   bootstrap: [AppComponent]

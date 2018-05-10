@@ -43,6 +43,7 @@ app.set('view engine', 'ejs');
 
 app.locals.title = 'Express - Generated with IronGenerator';
 
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -52,13 +53,19 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
 
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  //console.log(res.locals.user)
+  next();
+})
+
 const BettingHouse = require('./models/BettingHouse');
 const Bet = require('./models/Bet')
 const authRoutes = require('./routes/authentication');
 const index = require('./routes/index');
 
 app.use('/', index);
-app.use('/', authRoutes);
+app.use('/api/auth', authRoutes);
 app.use('/api/bettingHouse', require('./routes/crud')(BettingHouse));
 app.use('/api/bet', require('./routes/bets'));
 

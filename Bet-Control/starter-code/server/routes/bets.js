@@ -8,12 +8,22 @@ const crud = require('./crud');
 //listar las apuestas;
 
 router.get('/', (req, res) => {
-  Bet.find({},(err, bets) => {
-    if (err) { return res.json(err).status(500); }
-    return res.json(bets);
-  });
-  
-})
+  //Me traigo el user
+  console.log("HERE", res.locals.user)
+  console.log("BETTINGHOUSE", res.locals.user.bettingHouse)
+  //Cojo los bettinghouse que le pertenecen
+  const bettinghousesUser = res.locals.user.bettingHouse
+
+  Bet.find({
+      bettingHouse: bettinghousesUser,status:"Pending"
+    })
+    .then(bets => {
+      //Traigo las apuestas que tienen ese betting house
+      console.log(bets)
+      return res.status(200).json(bets);
+    })
+
+});
 // Updatebank  
 router.post("/newbet/:id", (req, res, next) => {
   const betId = req.params.id;
@@ -30,6 +40,7 @@ router.post("/newbet/:id", (req, res, next) => {
           BettingHouse.findByIdAndUpdate(bettingHouseId, update).then(bettinghouse => {
             bettinghouse.bank = newbank;
             console.log("NEW", bettinghouse)
+
             return res.json(`Tu apuesta se ha realizado, el saldo de tu cuenta es ${newbank}`);
           })
         })
@@ -63,7 +74,8 @@ router.post("/certificatedBetWin/:id", (req, res, next) => {
             Bet.findByIdAndUpdate(betId, update1).then(bet => {
               bet.status = update1.status
               console.log("WINSTATUS", bet)
-              return res.json(`Has ganado la apuesta , ingresas ${totalGain}`)
+
+              return res.json(`Has ganado la apuesta , ingresas ${totalGain}€ `)
             })
           })
         })
@@ -91,6 +103,7 @@ router.post("/certificatedCashOut/:id", (req, res, next) => {
         BettingHouse.findByIdAndUpdate(bettingHouseId, update).then(bettinghouse => {
           bettinghouse.bank = update.bank;
           console.log("CASH OUT", bettinghouse)
+
           return res.json(`Has retirado tu apuesta antes de tiempo y has ingresado ${cashOut}`)
         })
 
@@ -108,6 +121,7 @@ router.post("/certificatedFailed/:id", (req, res, next) => {
     console.log(bet, update)
     bet.status = update.status
     console.log("LOSE", bet)
+
     return res.json(`Has fallado la apuesta`)
   }).catch(e => console.log(e))
 
