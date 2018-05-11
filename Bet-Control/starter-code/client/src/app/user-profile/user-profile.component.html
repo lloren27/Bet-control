@@ -1,5 +1,6 @@
 <!-- <div *ngIf="sessionService.user"> -->
     <!-- <h1>Welcome {{sessionService.user.username}}</h1>  -->
+    <h1 class ="Bienvenida" >Buenos días {{sessionService.user.username}}</h1>
     
     <button [routerLink]="['/bettingHouse/new']">Añadir casas de apuesta</button>
     <h2>Mis Casas de Apuestas</h2>
@@ -7,7 +8,7 @@
         <div class="bhouse" *ngFor="let bhouse of bettingHouses">
           <h3> {{ bhouse.name }} </h3>
           <p>Banco:{{ bhouse.bank }}€ </p>
-          <!-- <a [routerLink]="['bettingHouses', bettingHouse._id]"> Ver Detalles </a> -->
+          <a [routerLink]="['/bettingHouse/edit', bhouse._id]"> Editar tu casa de apuestas </a>
         </div>
       </div>
 

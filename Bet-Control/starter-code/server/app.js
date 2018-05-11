@@ -63,9 +63,11 @@ const BettingHouse = require('./models/BettingHouse');
 const Bet = require('./models/Bet')
 const authRoutes = require('./routes/authentication');
 const index = require('./routes/index');
+const extendedBettingHouse = require('./routes/extBettingHouse')
 
 app.use('/', index);
 app.use('/api/auth', authRoutes);
+app.use('/api/bettingHouse/income',extendedBettingHouse)
 app.use('/api/bettingHouse', require('./routes/crud')(BettingHouse));
 app.use('/api/bet', require('./routes/bets'));
 

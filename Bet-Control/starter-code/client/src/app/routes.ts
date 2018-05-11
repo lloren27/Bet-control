@@ -5,6 +5,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserBetsComponent } from './user-bets/user-bets.component';
 import { MainComponent } from './main/main.component';
 import { NewbettinghouseComponent } from './newbettinghouse/newbettinghouse.component';
+import { EditbettinghouseComponent } from './editbettinghouse/editbettinghouse.component';
 
 export const routes: Routes = [
   { path: '', component:MainComponent},
@@ -13,5 +14,6 @@ export const routes: Routes = [
   { path: "profile", component: UserProfileComponent },
   { path: "bets", component: UserBetsComponent },
   { path: "bettingHouse/new", component: NewbettinghouseComponent },
+  { path: "bettingHouse/edit/:id", component: EditbettinghouseComponent },
   { path: '**', redirectTo: '' },
 ];

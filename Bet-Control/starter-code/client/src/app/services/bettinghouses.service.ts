@@ -18,8 +18,9 @@ getBettingHouses() {
     return this.http.get(`${this.BASE_URL}`)
       .map((res) => res.json());
   }
-editBettingHouse(bettingHouse) {
-    return this.http.put(`${this.BASE_URL}/${bettingHouse.id}`,bettingHouse)
+editBettingHouse(bettingHouse, id) {
+  console.log(bettingHouse, id)
+    return this.http.put(`${this.BASE_URL}/income/${id}`, { bank : bettingHouse })
       .map((res) => res.json());
   }
 addBettingHouse(name: string, bank: number) {

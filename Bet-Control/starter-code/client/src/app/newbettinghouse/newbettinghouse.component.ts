@@ -8,17 +8,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./newbettinghouse.component.css']
 })
 export class NewbettinghouseComponent implements OnInit {
-  name: string = "";
-  bank: number = 0;
+  name: string;
+  bank: number;
+  bhouseName: Array<String>;
+  constructor(public Betting: BettinghousesService, public router: Router) { }
 
-  constructor(public Betting:BettinghousesService, public router: Router) { }
+  ngOnInit() {
+    this.bhouseName = ['Bet365', 'Betfair', 'Sportium', 'MarcaApuestas',
+      'Wanabet', 'WilliamHill', 'Bwin', '888sports']
+  }
 
-  ngOnInit() {}
+  createNewBettingHouse(name, bank) {
+    console.log(name, bank)
+    this.Betting.addBettingHouse(name, bank).subscribe()
 
-  createNewBettingHouse() {
-    
-    this.Betting.addBettingHouse(this.name, this.bank).subscribe()
-  
   }
 
 }
+
