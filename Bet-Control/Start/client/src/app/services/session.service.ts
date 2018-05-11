@@ -46,13 +46,12 @@ export class SessionService {
       .post(`${this.BASE_URL}/api/auth/logout`, {}, this.options)
       .map(res => res.json())
       .map(() => this.handleUser())
-      .catch(this.handleError);
+      .catch((e) => Observable.throw(e.json().message));
   }
 
   isLoggedIn() {
     return this.http
       .get(`${this.BASE_URL}/api/auth/loggedin`, this.options)
-      .map(res => res.json())
       .map(user => this.handleUser(user))
       .catch(this.handleError);
   }

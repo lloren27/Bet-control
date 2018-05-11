@@ -12,10 +12,11 @@ const logInPromise = (user, req) => new Promise((resolve,reject) => {
 });  
 
 
+/* GET home page */
 router.post('/signup', (req, res, next) => {
-    const {username, password, email} = req.body;
+    const {username, password} = req.body;
   
-    if (!username || !password || !email) {
+    if (!username || !password) {
       res.status(400).json({ message: 'Provide username and password' });
       return;
     }
@@ -29,8 +30,7 @@ router.post('/signup', (req, res, next) => {
 
         const theUser = new User({
           username,
-          password: hashPass,
-          email
+          password: hashPass
         });
     
         return theUser.save().then( user => logInPromise(user,req));

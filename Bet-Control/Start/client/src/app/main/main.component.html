@@ -1,0 +1,11 @@
+<div class="Principal" *ngIf="!sessionService.user">
+
+    <h1>Bet-Control</h1>
+    <img src="http://res.cloudinary.com/lloren27/image/upload/v1525952686/candado.png">
+    <p>La app definitiva para gestionar tus apuestas</p>
+      <button [routerLink]="['/login']">LOGIN</button>
+  
+    <p>Si todavia no tienes cuentas, registrate Aquí</p>
+      <button [routerLink]="['/signup']">SIGNUP</button>
+      
+ </div>

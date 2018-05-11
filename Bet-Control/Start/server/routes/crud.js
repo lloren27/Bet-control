@@ -1,5 +1,4 @@
 const express = require("express");
-const loggedIn = require('../utils/isAuthenticated');
 const _ = require("lodash");
 
 const simpleCrud = Model => {
@@ -8,7 +7,6 @@ const simpleCrud = Model => {
 
   // Retrive ALL
   router.get("/", (req, res, next) => {
-    console.log("?????----",res.locals.user)
     Model.find()
       .then(objects => res.json(objects))
       .catch(e => next(e));

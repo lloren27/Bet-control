@@ -1,0 +1,14 @@
+
+<a [routerLink]="['/profile']" class="btn btn-primary">Ir al Perfil</a>
+
+<form>
+    <h2> Añade un nuevo ingreso a tu banco</h2>
+    <label> Ingreso </label>
+    <input type="number" [(ngModel)]="newincome" name="newincome" placeholder="€"/>
+    <br>
+    <br>
+    <div>
+      <button (click)="newMoneyincome()">Realiza tu ingreso </button>
+    </div>
+  </form>
+  <p class="error"> {{ error }} </p>

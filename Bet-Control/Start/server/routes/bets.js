@@ -2,25 +2,26 @@ const express = require('express');
 const router = express.Router();
 const Bet = require('../models/Bet');
 const BettingHouse = require('../models/BettingHouse');
-const loggedIn = require('../utils/isAuthenticated');
+const User = require('../models/User');
 const crud = require('./crud');
 
 //listar las apuestas;
 
-router.get('/', (req, res) => {
-  console.log("??",res.locals.user)
-  //Cojo los bettinghouse que le pertenecen
-  const bettinghousesUser = res.locals.user.bettingHouse
-
-  Bet.find({
-      bettingHouse: bettinghousesUser,status:"Pending"
+router.get('/:id', (req, res) => {
+  console.log(req.params.id)
+  const user = req.params.id
+    Bet.find({
+      userId: user,status:"Pending"
     })
     .then(bets => {
       //Traigo las apuestas que tienen ese betting house
       console.log(bets)
       return res.status(200).json(bets);
     })
-});
+  });
+
+
+
 // Updatebank  
 router.post("/newbet/:id", (req, res, next) => {
   const betId = req.params.id;
