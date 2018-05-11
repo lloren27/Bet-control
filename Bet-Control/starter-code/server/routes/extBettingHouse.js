@@ -1,4 +1,10 @@
-
+const express = require("express");
+const loggedIn = require('../utils/isAuthenticated');
+const _ = require("lodash");
+const Bet = require('../models/Bet');
+const BettingHouse = require('../models/BettingHouse');
+const loggedIn = require('../utils/isAuthenticated');
+const crud = require('./crud');
 
 
 router.put("/:id", (req, res, next) => {
