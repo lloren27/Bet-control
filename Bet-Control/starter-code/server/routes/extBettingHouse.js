@@ -1,17 +1,21 @@
 const express = require("express");
 const loggedIn = require('../utils/isAuthenticated');
-const _ = require("lodash");
+const router = express.Router();
 const Bet = require('../models/Bet');
 const BettingHouse = require('../models/BettingHouse');
-const loggedIn = require('../utils/isAuthenticated');
 const crud = require('./crud');
 
-
 router.put("/:id", (req, res, next) => {
-    console.log(req.body)
-    const updates = _.pick(req.body, fields);
-    console.log(updates)
-    Model.findByIdAndUpdate(req.params.id, updates, { new: true })
-      .then(object => res.json(object))
-      .catch(e => next(e));
+    const newincome = req.body.newincome, bettinghouseId = req.params.id;
+    BettingHouse.findById(bettinghouseId)
+    .then(bettinghouse => {
+      const newbank = bettinghouse.bank + (newincome)
+      const updates = { bank : newbank };
+    BettingHouse.findByIdAndUpdate(bettinghouseId, updates, { new: true })
+    .then(bettinghouse => {
+        return res.json(`Has realizado un ingreso de ${newincome}`)
+    }).catch(e => next(e));
   });
+})
+
+module.exports = router;

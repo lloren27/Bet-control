@@ -20,7 +20,7 @@ getBettingHouses() {
   }
 editBettingHouse(bettingHouse, id) {
   console.log(bettingHouse, id)
-    return this.http.put(`${this.BASE_URL}/income/${id}`, { bank : bettingHouse })
+    return this.http.put(`${this.BASE_URL}/income/${id}`, { newincome : bettingHouse })
       .map((res) => res.json());
   }
 addBettingHouse(name: string, bank: number) {

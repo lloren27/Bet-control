@@ -36,7 +36,6 @@ app.use(session({
 configure(passport);
 
 app.use(passport.initialize());
-app.use(passport.session());
 app.use(cors(corsOptions));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -67,7 +66,7 @@ const extendedBettingHouse = require('./routes/extBettingHouse')
 
 app.use('/', index);
 app.use('/api/auth', authRoutes);
-app.use('/api/bettingHouse/income',extendedBettingHouse)
+app.use('/api/bettingHouse/income',extendedBettingHouse);
 app.use('/api/bettingHouse', require('./routes/crud')(BettingHouse));
 app.use('/api/bet', require('./routes/bets'));
 
@@ -80,7 +79,6 @@ app.use((req, res, next) => {
 
 // error handler
 app.use((err, req, res, next) => {
-  // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 

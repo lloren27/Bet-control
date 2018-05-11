@@ -13,6 +13,7 @@ export class EditbettinghouseComponent implements OnInit {
   constructor(public Betting: BettinghousesService, public router: Router, public route: ActivatedRoute) { }
   bank:number;
   id:any;
+  newincome:number;
   ngOnInit() {
     this.route.params.subscribe(params => {
      this.id= params.id;
@@ -22,6 +23,6 @@ export class EditbettinghouseComponent implements OnInit {
   }
 
   newMoneyincome() {
-    this.Betting.editBettingHouse(this.bank, this.id).subscribe();
+    this.Betting.editBettingHouse(this.newincome, this.id).subscribe(() => this.router.navigate(['/profile']));
   }
 }

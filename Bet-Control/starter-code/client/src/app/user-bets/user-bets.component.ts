@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UserBetsComponent implements OnInit {
   bets:Array<any> = [];
 
-  constructor(public Bets:BetsService,public session: SessionService,private router: Router) { }
+  constructor(public Bets:BetsService, public sessionService: SessionService, private router: Router) { }
 
   ngOnInit() {
     this.Bets.getBet().subscribe( bets => this.bets = bets);

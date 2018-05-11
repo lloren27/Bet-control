@@ -1,6 +1,5 @@
-<!-- <div *ngIf="sessionService.user"> -->
-    <!-- <h1>Welcome {{sessionService.user.username}}</h1>  -->
-    <h1 class ="Bienvenida" >Buenos días {{sessionService.user.username}}</h1>
+<div *ngIf="sessionService.user">
+    <h1>Bienvenido {{sessionService.user.username}}</h1> 
     
     <button [routerLink]="['/bettingHouse/new']">Añadir casas de apuesta</button>
     <h2>Mis Casas de Apuestas</h2>
@@ -16,4 +15,4 @@
     <button (click)="gotoBets()"> Ver Mis Apuestas </button>
 
     <!-- <button (click)="logout()">LOGOUT</button> -->
-<!-- </div> -->
+</div>
