@@ -1,0 +1,15 @@
+
+
+<a [routerLink]="['/profile']" class="btn btn-primary">Ir al Perfil</a>
+<div *ngIf="bet">
+ <h4> {{ bet.bettingHouse }} </h4> 
+  <h4> DEPORTE:{{ bet.sport }} </h4>
+    <h1>APUESTA: {{ bet.betDescription }} </h1>
+    <p>CANTIDAD APOSTADA:{{ bet.moneyBet }} </p><p> CUOTA DE APUESTA:{{ bet.bettingFee }} </p>
+    <h2>GANANCIAS:{{ bet.totalGain}}</h2> 
+    <button (click)= "betWin()" >Apuesta Ganada</button>
+    <button (click)= "betLoose()">Apuesta Perdida</button>
+    <button (click)= "betCashout()" >Cash Out</button>
+    <input type="number" [(ngModel)]="cashOut" name="cashOut" />
+</div>
+

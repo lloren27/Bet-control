@@ -1,10 +1,11 @@
 
 <a [routerLink]="['/profile']" class="btn btn-primary">Ir al Perfil</a>
-
-<h1>Apuestas</h1>
+<div *ngIf="bets.length >= 1">
+  <h1>Apuestas</h1>
 <div class="bets">
     <div class="bet" *ngFor="let bet of bets">
       <h3> {{ bet.betDescription }} </h3>
-      <!-- <a [routerLink]="['bets', bets._id]"> Ver Detalles </a> -->
+     <a [routerLink]="['/bet/detail', bet._id]"> Ver Detalles </a>
     </div>
   </div>
+</div>

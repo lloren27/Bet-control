@@ -13,7 +13,14 @@ const BetSchema = new Schema({
     bettingFee:Number,
     totalGain:{ type: Number, default: null },
     parcialGain:{ type: Number, default: null },
-});
+},
+{
+    timestamps: {
+      createdAt: "created_at",
+      updatedAt: "updated_at"
+    }
+  }
+);
 
     const Bet = mongoose.model('bet', BetSchema);
     module.exports = Bet;

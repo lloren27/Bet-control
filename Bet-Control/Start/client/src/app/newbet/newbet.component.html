@@ -1,0 +1,31 @@
+<a [routerLink]="['/profile']" class="btn btn-primary">Ir al Perfil</a>
+
+<form>
+  <h2> Crea una nueva Apuestas</h2>
+
+  <div>
+    <label> Casa de apuestas </label>
+    <select #select>
+      <option *ngFor="let e of bhouseName" [value]="e">
+        <p>{{e}}</p>
+      </option>
+    </select>
+  </div>
+  <br>
+  <label> Deporte </label>
+  <input type="text" [(ngModel)]="sport" name="sport" />
+  <br>
+  <label> Descripción de la apuesta </label>
+  <input type="text" [(ngModel)]="betDescription" name="betDescription" />
+  <br>
+  <label> Cantidad apostada </label>
+  <input type="number" [(ngModel)]="moneyBet" name="moneyBet" />
+  <br>
+  <label> Cuota de apuesta </label>
+  <input type="number" [(ngModel)]="bettingFee" name="bettingFee" />
+  <br>
+  <div>
+    <button (click)="createNewBet(select.value,sport,betDescription,moneyBet,bettingFee)">Crear Apuesta </button>
+  </div>
+</form>
+<p class="error"> {{ error }} </p>

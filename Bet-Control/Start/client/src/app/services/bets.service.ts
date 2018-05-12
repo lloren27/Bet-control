@@ -1,18 +1,71 @@
 import { Injectable } from '@angular/core';
 import { Http } from "@angular/http";
 import 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class BetsService {
 
-BASE_URL: string = 'http://localhost:3000/api/bet';
+  BASE_URL: string = 'http://localhost:3000/api/bet';
+  options: object = { withCredentials: true };
 
-constructor(private http: Http) { }
+  constructor(private http: Http, private router: Router) { }
 
-getBet(user) {
-  console.log(user)
+
+  getBets(user) {
+    console.log(user)
     return this.http.get(`${this.BASE_URL}/${user._id}`, )
       .map((res) => res.json());
+  }
+  getBet(id) {
+    return this.http.get(`${this.BASE_URL}/detail/${id}`)
+      .map((res) => res.json());
+  }
+  addBet(sport: string, betDescription: string, moneyBet: number,
+    bettingFee: number, bettingHouse: string, userId: string) {
+    console.log(sport, betDescription);
+    const newBet = {
+      sport: sport,
+      betDescription: betDescription,
+      moneyBet: moneyBet,
+      bettingFee: bettingFee,
+      bettingHouse: bettingHouse,
+      userId: userId
+    };
+    return this.http
+      .post(`${this.BASE_URL}/newbet`, newBet, this.options)
+      .map(res => {
+        res.json();
+        this.router.navigate(['/bets']);
+      });
+  }
+  winBet(id) {
+    return this.http
+      .post(`${this.BASE_URL}/certificatedBetWin/${id}`, this.options)
+      .map(res => {
+        res.json();
+        this.router.navigate(['/profile']);
+      });
+
+  }
+  LooseBet(id) {
+    return this.http
+      .post(`${this.BASE_URL}/certificatedFailed/${id}`, this.options)
+      .map(res => {
+        res.json();
+        this.router.navigate(['/profile']);
+      });
+
+  }
+  cashOutBet(id, cashOut) {
+    return this.http
+      .post(`${this.BASE_URL}/certificatedCashOut/${id}`, { cashOut }, this.options)
+      .map(res => {
+        res.json();
+        this.router.navigate(['/profile']);
+      });
+
+
   }
 
 }

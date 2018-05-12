@@ -43,7 +43,7 @@ export class SessionService {
 
   logout() {
     return this.http
-      .post(`${this.BASE_URL}/api/auth/logout`, {}, this.options)
+      .get(`${this.BASE_URL}/api/auth/logout`, this.options)
       .map(res => res.json())
       .map(() => this.handleUser())
       .catch((e) => Observable.throw(e.json().message));

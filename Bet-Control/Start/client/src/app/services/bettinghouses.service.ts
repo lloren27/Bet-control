@@ -14,8 +14,8 @@ export class BettinghousesService {
     public sessionService: SessionService,
     private router: Router) { }
 
-  getBettingHouses() {
-    return this.http.get(`${this.BASE_URL}`)
+  getBettingHouses(id) {
+    return this.http.get(`${this.BASE_URL}/${id}`)
       .map((res) => res.json());
   }
   editBettingHouse(bettingHouse, id) {
@@ -27,10 +27,10 @@ export class BettinghousesService {
     console.log(name, bank);
     const newBettingHouse = {
       name: name,
-      bank: bank
+      bank: bank,
     };
     return this.http
-      .post(`${this.BASE_URL}`, newBettingHouse, this.options)
+      .post(`${this.BASE_URL}/income`, newBettingHouse, this.options)
       .map(res => {
         res.json();
         this.router.navigate(['/profile']);
@@ -38,3 +38,5 @@ export class BettinghousesService {
   }
 
 }
+
+

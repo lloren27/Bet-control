@@ -5,8 +5,7 @@ const BettingHouse = require('../models/BettingHouse');
 const User = require('../models/User');
 const crud = require('./crud');
 
-//listar las apuestas;
-
+//listar las apuestas pendientes;
 router.get('/:id', (req, res) => {
   console.log(req.params.id)
   const user = req.params.id
@@ -19,9 +18,20 @@ router.get('/:id', (req, res) => {
       return res.status(200).json(bets);
     })
   });
-
-
-
+// detalles de cada apuesta 
+router.get("/detail/:id", (req, res, next) => {
+  console.log("Recoge_este",req.params.id)
+  Bet.findById(req.params.id)
+    .then(bet => res.json(bet))
+    .catch(e => next(e));
+});
+  // Create
+  router.post("/newbet", (req, res, next) => {
+    const bet = _.pick(req.body, fields);
+    Bet.create(bet)
+      .then(bet => res.json(bet))
+      .catch(e => next(e));
+  });
 // Updatebank  
 router.post("/newbet/:id", (req, res, next) => {
   const betId = req.params.id;

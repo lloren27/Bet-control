@@ -8,7 +8,8 @@ const BeetingHouseSchema = new Schema({
         enum: ['Bet365', 'Betfair','Sportium','MarcaApuestas','Wanabet','WilliamHill','Bwin','888sports'],
         default:'Bet365'
         },
-    bank:Number
+    bank:Number,
+    userId:{ type:Schema.Types.ObjectId, ref: 'User'},
     
 });
     module.exports = mongoose.model('BettingHouse', BeetingHouseSchema);

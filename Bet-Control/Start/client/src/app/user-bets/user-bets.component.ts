@@ -19,7 +19,7 @@ export class UserBetsComponent implements OnInit {
   ngOnInit() {    
     this.sessionService.userEvent.subscribe(user => {
       this.user = JSON.parse(user._body);
-      this.Bets.getBet(this.user).subscribe( bets => this.bets = bets);
+      this.Bets.getBets(this.user).subscribe( bets => this.bets = bets);
     });
     
   }

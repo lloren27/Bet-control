@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./newbettinghouse.component.css']
 })
 export class NewbettinghouseComponent implements OnInit {
+  user: any;
+  bettinghouse: string;
+  bettinghouses: Array<object>;
   name: string;
   bank: number;
   bhouseName: Array<String>;
@@ -23,6 +26,7 @@ export class NewbettinghouseComponent implements OnInit {
     this.Betting.addBettingHouse(name, bank).subscribe()
 
   }
+
 
 }
 

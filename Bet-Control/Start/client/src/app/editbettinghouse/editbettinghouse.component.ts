@@ -19,7 +19,7 @@ export class EditbettinghouseComponent implements OnInit {
      this.id= params.id;
       });
 
-    this.Betting.getBettingHouses().subscribe(e => console.log(e))
+    this.Betting.getBettingHouses(this.id).subscribe(e => console.log(e))
   }
 
   newMoneyincome() {

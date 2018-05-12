@@ -16,6 +16,8 @@ import { BetsService } from "./services/bets.service";
 import { MainComponent } from './main/main.component';
 import { NewbettinghouseComponent } from './newbettinghouse/newbettinghouse.component';
 import { EditbettinghouseComponent } from './editbettinghouse/editbettinghouse.component';
+import { BetsDetailsComponent } from './bets-details/bets-details.component';
+import { NewbetComponent } from './newbet/newbet.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { EditbettinghouseComponent } from './editbettinghouse/editbettinghouse.c
     UserBetsComponent,
     MainComponent,
     NewbettinghouseComponent,
-    EditbettinghouseComponent
+    EditbettinghouseComponent,
+    BetsDetailsComponent,
+    NewbetComponent
 ],
   imports: [
     BrowserModule,
