@@ -18,21 +18,38 @@ router.put("/:id", (req, res, next) => {
   });
 })
 router.post("/new", (req, res, next) => {
+  var pepe;
   const newBettingHouse = new BettingHouse({
     name: req.body.name,
     user: req.user.id,
     bank: req.body.bank,
   });
+  const user = req.user.id
   console.log (req.user.id)
-  newBettingHouse.save(function(err,bettinghouse ) {
+  console.log (newBettingHouse)
+  newBettingHouse.save(function(err,bettinghouse) {
     if (err) {
       console.log(err);
-      return res.status(500).json({message: "Ha habio un error"});
+      return res.status(500).json({message: "Ha habido un error"});
     } else {
-      User.findByIdAndUpdate(req.user.id, { $push: { bettinghouse: bettinghouse._id } })
-      .then(() => res.status(200).json(bettinghouse)
-      );
+      //User.findByIdAndUpdate(req.user.id, { $push: { bettinghouse: bettinghouse._id } })
+      // User.findByIdAndUpdate(req.user.id,
+      //   { $push: { bettinghouse: pepe._id } } , { new: true }
+      // )
+      User.findById(req.user.id).then((user)=> {
+        console.log(user)
+        user.bettingHouse.push(bettinghouse._id);
+        user.save();
+        console.log("JESUS AMEN DOMINGO", user)
+        res.status(200).json()
+      })
+      // .then((user) => {
+      //   console.log("JESUS AMEN DOMINGO", user)
+      //   res.status(200).json()
+      // });
     }
   });
 });
 module.exports = router;
+
+

@@ -14,8 +14,8 @@ export class BettinghousesService {
     public sessionService: SessionService,
     private router: Router) { }
 
-  getBettingHouses(id) {
-    return this.http.get(`${this.BASE_URL}/${id}`)
+  getBettingHouses(user) {
+    return this.http.get(`http://localhost:3000/api/auth/profile/${user._id}`)
       .map((res) => res.json());
   }
   editBettingHouse(bettingHouse, id) {
@@ -30,7 +30,7 @@ export class BettinghousesService {
       bank: bank,
     };
     return this.http
-      .post(`${this.BASE_URL}/income`, newBettingHouse, this.options)
+      .post(`${this.BASE_URL}/income/new`, newBettingHouse, this.options)
       .map(res => {
         res.json();
         this.router.navigate(['/profile']);

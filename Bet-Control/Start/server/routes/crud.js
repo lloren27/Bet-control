@@ -22,6 +22,7 @@ const simpleCrud = Model => {
 
   // Retrive DETAIL
   router.get("/:id", (req, res, next) => {
+    console.log("ufiufoi",req.params.id)
     Model.findById(req.params.id)
       .then(object => res.json(object))
       .catch(e => next(e));

@@ -18,6 +18,6 @@ export class AuthSignupComponent implements OnInit {
 
   signup() {
       
-      this.sessionService.signup(this.user).subscribe(() => this.router.navigate(['/profile/:id']));
+      this.sessionService.signup(this.user).subscribe(() => this.router.navigate(['/profile']));
     }
   }

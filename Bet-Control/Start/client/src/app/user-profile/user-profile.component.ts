@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import { BettinghousesService } from "../services/bettinghouses.service";
 import { SessionService } from "../services/session.service";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute, Router, NavigationEnd } from "@angular/router";
 
 
 @Component({
@@ -13,16 +13,29 @@ import { ActivatedRoute, Router } from "@angular/router";
 export class UserProfileComponent implements OnInit {
   bettingHouses:Array<any> = [];
   id:any;
+  user:any
+  isDataAvailable: Boolean = false;
 
-  constructor(public Betting:BettinghousesService,public sessionService: SessionService,public router: Router,public route: ActivatedRoute) { }
+  constructor(public Betting:BettinghousesService,public sessionService: SessionService,public router: Router,public route: ActivatedRoute) {
+
+  }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-    this.id= params.id;
-     });
-    this.Betting.getBettingHouses(this.id).subscribe( bettingHouses => this.bettingHouses = bettingHouses);
+    this.sessionService.userEvent.subscribe(user => {
+      this.user = JSON.parse(user._body);
+      console.log(user)
+      this.Betting.getBettingHouses(this.user).subscribe(user =>{
+        this.user = user;
+        this.bettingHouses = user.bettingHouse;
+        this.isDataAvailable = true
+      })
+    })
+   
   }
+
   gotoBets() {
     this.router.navigate(['/bets']);
   }
+
 }
+

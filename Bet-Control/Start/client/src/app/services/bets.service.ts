@@ -21,16 +21,15 @@ export class BetsService {
     return this.http.get(`${this.BASE_URL}/detail/${id}`)
       .map((res) => res.json());
   }
-  addBet(sport: string, betDescription: string, moneyBet: number,
-    bettingFee: number, bettingHouse: string, userId: string) {
-    console.log(sport, betDescription);
+  addBet(userId: string,bettingHouse: string,sport: string, betDescription: string, moneyBet: number,
+    bettingFee: number) {
     const newBet = {
+      userId: userId,
+      bettingHouse: bettingHouse,
       sport: sport,
       betDescription: betDescription,
       moneyBet: moneyBet,
       bettingFee: bettingFee,
-      bettingHouse: bettingHouse,
-      userId: userId
     };
     return this.http
       .post(`${this.BASE_URL}/newbet`, newBet, this.options)

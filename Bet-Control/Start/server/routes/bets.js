@@ -4,6 +4,9 @@ const Bet = require('../models/Bet');
 const BettingHouse = require('../models/BettingHouse');
 const User = require('../models/User');
 const crud = require('./crud');
+const _ = require("lodash");
+const fields = Object.keys(_.omit(Bet.schema.paths, ["__v", "_id"]));
+
 
 //listar las apuestas pendientes;
 router.get('/:id', (req, res) => {

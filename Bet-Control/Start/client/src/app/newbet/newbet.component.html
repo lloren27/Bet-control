@@ -2,12 +2,12 @@
 
 <form>
   <h2> Crea una nueva Apuestas</h2>
-
+  <div hidden="hidden" >{{user._id}}</div>
   <div>
     <label> Casa de apuestas </label>
     <select #select>
-      <option *ngFor="let e of bhouseName" [value]="e">
-        <p>{{e}}</p>
+      <option *ngFor="let e of bettingHouses" [value]="e._id">
+        <p>{{e.name}}</p>
       </option>
     </select>
   </div>
@@ -25,7 +25,7 @@
   <input type="number" [(ngModel)]="bettingFee" name="bettingFee" />
   <br>
   <div>
-    <button (click)="createNewBet(select.value,sport,betDescription,moneyBet,bettingFee)">Crear Apuesta </button>
+    <button (click)="createNewBet(user._id,select.value,sport,betDescription,moneyBet,bettingFee)">Crear Apuesta </button>
   </div>
 </form>
 <p class="error"> {{ error }} </p>
