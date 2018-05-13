@@ -1,0 +1,17 @@
+.titulo{
+    text-align: center;
+    color:#60B515;
+    font-size:90px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+form{
+    text-align: center;
+}
+.campos{
+    margin-bottom: 30px;
+}
+.botonera{
+    background-color:#60B515;
+    color:white;
+}

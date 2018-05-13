@@ -25,7 +25,7 @@
   <input type="number" [(ngModel)]="bettingFee" name="bettingFee" />
   <br>
   <div>
-    <button (click)="createNewBet(user._id,select.value,sport,betDescription,moneyBet,bettingFee)">Crear Apuesta </button>
+    <button class="btn btn-success btn-sm" (click)="createNewBet(user._id,select.value,sport,betDescription,moneyBet,bettingFee)">Crear Apuesta </button>
   </div>
 </form>
 <p class="error"> {{ error }} </p>

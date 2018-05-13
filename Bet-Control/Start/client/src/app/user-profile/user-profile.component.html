@@ -1,19 +1,20 @@
-<div *ngIf="isDataAvailable">
-    <h1>Bienvenido {{user.username}}</h1> 
-    
-    <button class="btn btn-success"[routerLink]="['/bettingHouse/new']">Añadir casas de apuesta</button>
-    <h2>Mis Casas de Apuestas</h2>
-    <div class="bhouses">
-        <div class="bhouse" *ngFor="let bhouse of bettingHouses">
-          <h3> {{ bhouse.name }} </h3>
-          <p>Banco:{{ bhouse.bank }}€ </p>
-          <button class="btn"><a [routerLink]="['/bettingHouse/edit', bhouse._id]"> Editar tu casa de apuestas </a></button> 
-        </div>
-      </div>
+<div class="profile" *ngIf="isDataAvailable">
+  
 
-   
-    <button class="btn" (click)="gotoBets()"> Ver Mis Apuestas Pendientes </button>
-    <button class="btn btn-success"[routerLink]="['/bet/new']">Añadir Nueva Apuesta</button>
-
-    <!-- <button (click)="logout()">LOGOUT</button> -->
+  <h1 class="welcome">Bienvenido {{user.username}}</h1>
+  <div class="introcasas">
+    <h2 class="houses">Mis Casas de Apuestas</h2>
+    <button class="btn btn-success nueva" [routerLink]="['/bettingHouse/new']"> + casas de apuesta</button>
+  </div>
+  <div class="bhouses">
+    <div class="bhouse" *ngFor="let bhouse of bettingHouses">
+      <h3 class="nombre"> {{ bhouse.name }} </h3>
+      <h3 class="dinero">{{ bhouse.bank }}€ </h3>
+      <a class="ingreso" [routerLink]="['/bettingHouse/edit', bhouse._id]"> Realiza un ingreso</a>
+    </div>
+  </div>
+  
+  
 </div>
+
+  <!-- <button (click)="logout()">LOGOUT</button> -->

@@ -1,0 +1,45 @@
+.profile{
+    margin-left: 20px;
+}
+.houses{
+    display: inline
+}
+.nueva{
+    display: inline;
+    margin-left: 20px;
+}
+.nombre{
+    display: inline;
+}
+.dinero{
+    display: inline;
+    margin-left: 10px;
+}
+.ingreso{
+    margin-left: 200px;
+}
+.bhouses{
+    border:3px solid green;
+    border-radius: 10px;
+    text-align: center
+}
+.botonera{
+    text-align: center;
+}
+.introcasas{
+    text-align:center;
+}
+.welcome{
+    margin-bottom: 50px;
+    color: #318700;
+}
+.irapuestas{
+    background-color: #FAC400;
+}
+header{
+    background-color: #318700;
+}
+.fuera{
+    color:white;
+    border-color: white;
+}

@@ -8,6 +8,7 @@ import { NewbettinghouseComponent } from './newbettinghouse/newbettinghouse.comp
 import { EditbettinghouseComponent } from './editbettinghouse/editbettinghouse.component';
 import { BetsDetailsComponent } from './bets-details/bets-details.component';
 import { NewbetComponent } from './newbet/newbet.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 export const routes: Routes = [
   { path: '', component:MainComponent},
@@ -19,5 +20,6 @@ export const routes: Routes = [
   { path: "bet/detail/:id", component: BetsDetailsComponent },
   { path: "bettingHouse/new", component: NewbettinghouseComponent },
   { path: "bettingHouse/edit/:id", component: EditbettinghouseComponent },
+  { path: "statistics", component: StatisticsComponent },
   { path: '**', redirectTo: '' },
 ];

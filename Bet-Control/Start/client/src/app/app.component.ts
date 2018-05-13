@@ -24,5 +24,8 @@ export class AppComponent {
       this.router.navigate(["/"]);
     });
   }
+  gotoBets() {
+    this.router.navigate(['/bets']);
+  }
 }
 

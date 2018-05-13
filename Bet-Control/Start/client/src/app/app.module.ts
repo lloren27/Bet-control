@@ -18,6 +18,7 @@ import { NewbettinghouseComponent } from './newbettinghouse/newbettinghouse.comp
 import { EditbettinghouseComponent } from './editbettinghouse/editbettinghouse.component';
 import { BetsDetailsComponent } from './bets-details/bets-details.component';
 import { NewbetComponent } from './newbet/newbet.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { NewbetComponent } from './newbet/newbet.component';
     NewbettinghouseComponent,
     EditbettinghouseComponent,
     BetsDetailsComponent,
-    NewbetComponent
+    NewbetComponent,
+    StatisticsComponent
 ],
   imports: [
     BrowserModule,

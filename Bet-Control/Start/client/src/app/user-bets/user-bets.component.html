@@ -1,11 +1,12 @@
 
-<a [routerLink]="['/profile']" class="btn btn-primary">Ir al Perfil</a>
+
 <div *ngIf="bets.length >= 1">
-  <h1>Apuestas</h1>
+  <h1 class="titulo">Apuestas pendientes</h1>
 <div class="bets">
     <div class="bet" *ngFor="let bet of bets">
-      <h3> {{ bet.betDescription }} </h3>
-     <a [routerLink]="['/bet/detail', bet._id]"> Ver Detalles </a>
+      <h3 class="descripcion"> {{ bet.betDescription }} </h3>
+     <a [routerLink]="['/bet/detail', bet._id]"><img class="lupa" src="https://res.cloudinary.com/lloren27/image/upload/v1526227603/lupa_negra.png"></a>
     </div>
   </div>
 </div>
+<a [routerLink]="['/profile']" class="btn btn-success">Ir al Perfil</a>

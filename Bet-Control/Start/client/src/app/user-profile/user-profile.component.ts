@@ -33,9 +33,7 @@ export class UserProfileComponent implements OnInit {
    
   }
 
-  gotoBets() {
-    this.router.navigate(['/bets']);
-  }
+ 
 
 }
 

@@ -64,7 +64,6 @@ export class BetsService {
         this.router.navigate(['/profile']);
       });
 
-
   }
 
 }
