@@ -5,5 +5,14 @@
     display: inline-block;
 }
 .titulo{
-    color: #318700
+    color: #318700;
+    margin-left: 50px;
+}
+.col-xs-12{
+    margin-left: 50px;
+    text-align: center;
+}
+.iraperfil{
+    margin-left: 50px;
+    margin-top:20px;
 }

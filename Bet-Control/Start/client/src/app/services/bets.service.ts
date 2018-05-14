@@ -14,11 +14,11 @@ export class BetsService {
 
   getBets(user) {
     console.log(user)
-    return this.http.get(`${this.BASE_URL}/${user._id}`, )
+    return this.http.get(`${this.BASE_URL}/${user._id}`,this.options )
       .map((res) => res.json());
   }
   getBet(id) {
-    return this.http.get(`${this.BASE_URL}/detail/${id}`)
+    return this.http.get(`${this.BASE_URL}/detail/${id}`,this.options)
       .map((res) => res.json());
   }
   addBet(userId: string,bettingHouse: string,sport: string, betDescription: string, moneyBet: number,
@@ -64,6 +64,26 @@ export class BetsService {
         this.router.navigate(['/profile']);
       });
 
+  }
+  getWinBets(user) {
+    console.log(user)
+    return this.http.get(`${this.BASE_URL}/win/${user._id}`,this.options )
+      .map((res) => res.json());
+  }
+  getLostBets(user) {
+    console.log(user)
+    return this.http.get(`${this.BASE_URL}/lost/${user._id}`,this.options )
+      .map((res) => res.json());
+  }
+  getCashOutBets(user) {
+    console.log(user)
+    return this.http.get(`${this.BASE_URL}/cashout/${user._id}`,this.options )
+      .map((res) => res.json());
+  }
+  getTotalBets(user) {
+    console.log(user)
+    return this.http.get(`${this.BASE_URL}/total/${user._id}`,this.options )
+      .map((res) => res.json());
   }
 
 }

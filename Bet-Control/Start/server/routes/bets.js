@@ -126,7 +126,7 @@ router.post("/certificatedCashOut/:id", (req, res, next) => {
 router.post("/certificatedFailed/:id", (req, res, next) => {
   const betId = req.params.id;
   const update = {
-    status: "Loose"
+    status: "Lost"
   }
   Bet.findByIdAndUpdate(betId, update).then(bet => {
     console.log(bet, update)
@@ -137,6 +137,53 @@ router.post("/certificatedFailed/:id", (req, res, next) => {
   }).catch(e => console.log(e))
 
 })
+//Contador de APUESTAS GANADAS;
+router.get('/win/:id', (req, res) => {
+  console.log(req.params.id)
+  const user = req.params.id
+    Bet.find({
+      userId: user,status:"Win"
+    })
+    .then(bets => {
+      console.log(bets)
+      return res.status(200).json(bets);
+    })
+  });
+//Contador de APUESTAS PERDIDAS;
+router.get('/lost/:id', (req, res) => {
+  console.log(req.params.id)
+  const user = req.params.id
+    Bet.find({
+      userId: user,status:"Lost"
+    })
+    .then(bets => {
+      console.log(bets)
+      return res.status(200).json(bets);
+    })
+  });
+  //Contador de APUESTAS CASHOUT;
+router.get('/cashout/:id', (req, res) => {
+  console.log(req.params.id)
+  const user = req.params.id
+    Bet.find({
+      userId: user,status:"Cash Out"
+    })
+    .then(bets => {
+      console.log(bets)
+      return res.status(200).json(bets);
+    })
+  });
+  router.get('/total/:id', (req, res) => {
+    console.log(req.params.id)
+    const user = req.params.id
+      Bet.find({
+        userId: user
+      })
+      .then(bets => {
+        console.log(bets)
+        return res.status(200).json(bets);
+      })
+    });
 
 module.exports = router;
 

@@ -1,4 +1,4 @@
-<a [routerLink]="['/profile']" class="btn btn-primary">Ir al Perfil</a>
+
 
 <form>
   <h2> Crea una nueva casa de Apuestas</h2>
@@ -17,7 +17,9 @@
   <br>
   <br>
   <div>
-    <button (click)="createNewBettingHouse(select.value, bank)">Crear casa de apuesta </button>
+    <button class="btn btn-success" (click)="createNewBettingHouse(select.value, bank)">Crear casa de apuesta </button>
   </div>
 </form>
 <p class="error"> {{ error }} </p>
+
+<a [routerLink]="['/profile']" class="btn btn-success irperfil ">Ir al Perfil</a>

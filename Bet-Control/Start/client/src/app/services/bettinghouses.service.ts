@@ -15,12 +15,13 @@ export class BettinghousesService {
     private router: Router) { }
 
   getBettingHouses(user) {
-    return this.http.get(`http://localhost:3000/api/auth/profile/${user._id}`)
+    console.log(user._id)
+    return this.http.get(`http://localhost:3000/api/auth/profile/${user._id}`,this.options)
       .map((res) => res.json());
   }
   editBettingHouse(bettingHouse, id) {
     console.log(bettingHouse, id)
-    return this.http.put(`${this.BASE_URL}/income/${id}`, { newincome: bettingHouse })
+    return this.http.put(`${this.BASE_URL}/income/${id}`, { newincome: bettingHouse },this.options)
       .map((res) => res.json());
   }
   addBettingHouse(name: string, bank: number) {

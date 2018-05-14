@@ -4,7 +4,7 @@
   <h1 class="welcome">Bienvenido {{user.username}}</h1>
   <div class="introcasas">
     <h2 class="houses">Mis Casas de Apuestas</h2>
-    <button class="btn btn-success nueva" [routerLink]="['/bettingHouse/new']"> + casas de apuesta</button>
+    <button class="btn btn-success nueva" [routerLink]="['/bettingHouse/new']"> <img src="http://res.cloudinary.com/lloren27/image/upload/v1526245531/outline_add_circle_outline_white_18dp.png"> casas de apuesta</button>
   </div>
   <div class="bhouses">
     <div class="bhouse" *ngFor="let bhouse of bettingHouses">

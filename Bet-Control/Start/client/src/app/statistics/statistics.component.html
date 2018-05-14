@@ -1,5 +1,41 @@
 <div class="selectstats" >
   <button class="btn btn-success">Apuestas por deporte</button>
-  <button class="btn btn-success">Estadisticas de apuestas realizadas</button>
+  <button (click)="gotoResult()" class="btn btn-success">Estadisticas de apuestas realizadas</button>
+ 
 </div>
-<a [routerLink]="['/profile']" class="btn btn-success">Ir al Perfil</a>
+<div *ngIf="isDataAvailable" class="resume">
+    <div class="divtot"><h3 class="totales">TOTAL: {{totals.length}}</h3></div>
+    <p class="ganada">Ganadas: {{wins.length}}
+    <img  src="http://res.cloudinary.com/lloren27/image/upload/v1526244986/outline_check_circle_black_18dp.png">
+    </p>
+    <p class="perdida">Perdidas: {{losts.length}}<img src="http://res.cloudinary.com/lloren27/image/upload/v1526245000/outline_highlight_off_black_18dp.png"></p>
+    <p class="cashout">Cash Out: {{cashs.length}}<img src="http://res.cloudinary.com/lloren27/image/upload/v1526245017/outline_info_black_18dp.png"></p>
+    <p *ngFor="let e of totals">Importe Apostado: {{e.moneyBet}}€ </p>
+    <p *ngFor="let e of wins">Importe Ganado: {{e.moneyBet * e.bettingFee}}€  </p>
+    
+    <h2>HOla:{{dineroApostado}} </h2>
+</div>
+   
+  
+  <!-- <div  class="Winners">
+  <h1 class="titulo">Apuestas Ganadas</h1>
+  <div class="row">
+      <div class="col-lg-5 col-md-8 col-sm-12 col-xs-12">
+          <div class="card" *ngFor="let bet of bets"> -->
+              <!-- <div class="card-header">
+                  {{ bet.bettingHouse }}
+              </div> -->
+              <!-- <div class="card-block">
+                  <div class="card-title">
+                      {{ bet.sport }}
+                  </div>
+                  <div class="card-text">
+                      {{ bet.betDescription }}
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div> -->
+
+  <a [routerLink]="['/profile']" class="btn btn-success iraperfil" >Ir al Perfil</a> 

@@ -1,7 +1,7 @@
-<a [routerLink]="['/profile']" class="btn btn-primary">Ir al Perfil</a>
+
 
 <form>
-  <h2> Crea una nueva Apuestas</h2>
+  <h2 class="titulo"> Crea una nueva Apuestas</h2>
   <div hidden="hidden" >{{user._id}}</div>
   <div>
     <label> Casa de apuestas </label>
@@ -29,3 +29,5 @@
   </div>
 </form>
 <p class="error"> {{ error }} </p>
+
+<a [routerLink]="['/profile']" class="btn btn-success iraperfil">Ir al Perfil</a>

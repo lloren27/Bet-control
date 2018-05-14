@@ -13,9 +13,9 @@ import { Router } from "@angular/router";
 export class AppComponent {
   title = 'Bet-Control';
   constructor(public sessionService: SessionService, public router: Router) {
-    this.sessionService.userEvent.subscribe(user => {
-      console.log("User App Component", user)
-    });
+    // this.sessionService.userEvent.subscribe(user => {
+    //   console.log("User App Component", user)
+    // });
   }
 
   ngOnInit() {}

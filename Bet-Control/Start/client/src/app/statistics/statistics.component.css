@@ -1,6 +1,37 @@
 .selectstats{
+    
+    margin-top: 30px;
+    text-align: center;
+}
+.resume{
     border: 3px solid #318700;
     border-radius: 10px;
     margin-top: 30px;
     text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.ganada{
+    display: inline;
+
+}
+.perdida{
+    display: inline;
+    margin-left: 10px;
+}
+.cashout{
+    display: inline;
+    margin-left: 10px;
+}
+.iraperfil{
+    margin-left: 50px;
+}
+.totales{
+    margin-top: 0px;
+    color:white;
+}
+.divtot{
+    background-color: #318700;
+    border: 1px solid #318700;
+    border-radius: 5px;
 }
