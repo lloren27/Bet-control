@@ -19,6 +19,8 @@ import { EditbettinghouseComponent } from './editbettinghouse/editbettinghouse.c
 import { BetsDetailsComponent } from './bets-details/bets-details.component';
 import { NewbetComponent } from './newbet/newbet.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import * as moment from 'moment';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -40,7 +42,8 @@ import { StatisticsComponent } from './statistics/statistics.component';
     RouterModule.forRoot(routes),
     FormsModule,
     HttpModule,
-    ClarityModule
+    ClarityModule,
+    ChartsModule
   ],
   providers: [SessionService,BettinghousesService,BetsService],
   bootstrap: [AppComponent]

@@ -40,7 +40,7 @@ export class BetsDetailsComponent implements OnInit {
     this.Bets.LooseBet(this.id).subscribe(e => console.log(e))
   }
 
-  betCashout(){
+  betCashout(cashOut){
     this.Bets.cashOutBet(this.id,this.cashOut).subscribe(e => console.log(e))
     console.log(this.cashOut)
   }

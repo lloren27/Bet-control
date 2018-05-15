@@ -20,6 +20,7 @@ export class NewbetComponent implements OnInit {
   bhouseName: Array<String>;
   user:any
   isDataAvailable: Boolean = false;
+  sports: Array<String>;
   constructor(public Bet: BetsService, public Betting:BettinghousesService, public router: Router,public sessionService: SessionService) { }
 
   ngOnInit() {
@@ -31,12 +32,16 @@ export class NewbetComponent implements OnInit {
         this.bettingHouses = user.bettingHouse;
     })
   })
+  this.sports = ['Futbol', 'Baloncesto', 'Tenis', 'F1',
+      'Motociclismo', 'Golf', 'Ciclismo', 'eSports','Carreras de Galgos','Carreras de Caballos']
  
   }
-  createNewBet(userId,bettingHouse,sport, betDescription,moneyBet,bettingFee) {
+  createNewBet(userId,bettingHouse,betDescription,sport,moneyBet,bettingFee) {
 
     console.log(sport, betDescription,moneyBet,bettingFee,bettingHouse,userId)
-    this.Bet.addBet(userId,bettingHouse,sport,betDescription,moneyBet,bettingFee).subscribe(bet => this.bet = bet)
+    this.Bet.addBet(userId,bettingHouse,betDescription,sport,moneyBet,bettingFee).subscribe(() => {
+      
+    })
 
   }
 }

@@ -11,10 +11,12 @@
       </option>
     </select>
   </div>
-  <br>
-  <label> Deporte </label>
-  <input type="text" [(ngModel)]="sport" name="sport" />
-  <br>
+  <select #select2>
+      <option *ngFor="let e of sports" [value]="e">
+        <p>{{e}}</p>
+      </option>
+    </select>
+    <br>
   <label> Descripción de la apuesta </label>
   <input type="text" [(ngModel)]="betDescription" name="betDescription" />
   <br>
@@ -25,9 +27,9 @@
   <input type="number" [(ngModel)]="bettingFee" name="bettingFee" />
   <br>
   <div>
-    <button class="btn btn-success btn-sm" (click)="createNewBet(user._id,select.value,sport,betDescription,moneyBet,bettingFee)">Crear Apuesta </button>
+    <button class="btn btn-success btn-sm" (click)="createNewBet(user._id,select.value,select2.value,betDescription,moneyBet,bettingFee)">Crear Apuesta </button>
   </div>
 </form>
 <p class="error"> {{ error }} </p>
 
-<a [routerLink]="['/profile']" class="btn btn-success iraperfil">Ir al Perfil</a>
+<!-- <a [routerLink]="['/profile']" class="btn btn-success iraperfil">Ir al Perfil</a> -->

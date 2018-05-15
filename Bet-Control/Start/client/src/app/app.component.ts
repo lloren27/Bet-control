@@ -2,8 +2,17 @@ import { Component } from '@angular/core';
 import { SessionService } from "./services/session.service";
 import { Observable } from "rxjs/Rx";
 import { Router } from "@angular/router";
+import { ClarityIcons } from "@clr/icons";
+import { ClrShapePin } from "@clr/icons/shapes/essential-shapes";
+import { ClrShapeStar } from "@clr/icons/shapes/social-shapes";
+import { ClrShapeCar } from "@clr/icons/shapes/travel-shapes";
+import { BetsService } from "./services/bets.service";
 
-
+ClarityIcons.add({
+  pin: ClrShapePin,
+  star: ClrShapeStar,
+  car: ClrShapeCar
+});
 
 @Component({
   selector: 'app-root',
@@ -11,14 +20,25 @@ import { Router } from "@angular/router";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  bets: Array<any> = [];
+  user: any;
   title = 'Bet-Control';
-  constructor(public sessionService: SessionService, public router: Router) {
+  constructor(public sessionService: SessionService, public router: Router,public Bets: BetsService) {
     // this.sessionService.userEvent.subscribe(user => {
     //   console.log("User App Component", user)
     // });
+
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.sessionService.userEvent.subscribe(user => {
+      this.user = JSON.parse(user._body);
+      this.Bets.getBets(this.user).subscribe(bets => {
+        this.bets = bets;
+      })
+    })
+  
+  }
   logout() {
     this.sessionService.logout().subscribe(() => {
       this.router.navigate(["/"]);

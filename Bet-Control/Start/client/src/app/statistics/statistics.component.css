@@ -13,15 +13,21 @@
 }
 .ganada{
     display: inline;
+    margin-left: 20px;
 
 }
 .perdida{
     display: inline;
-    margin-left: 10px;
+    margin-left: 15px;
+}
+.pending{
+    display: inline;
+    margin-left: 15px;
+
 }
 .cashout{
     display: inline;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 .iraperfil{
     margin-left: 50px;
@@ -34,4 +40,46 @@
     background-color: #318700;
     border: 1px solid #318700;
     border-radius: 5px;
+}
+img{
+    width: 35px;
+    margin-left: 22px;
+    margin-top:10px;
+}
+
+.futbol{
+    display: inline;
+    margin-left: 15px;
+}
+.baloncesto{
+    display: inline;
+    margin-left: 15px;
+}
+.tenis{
+    display: inline;
+    margin-left: 15px;
+}
+.f1{
+    display: inline;
+    margin-left: 15px;
+}
+.motos{
+    display: inline;
+    margin-left: 15px;
+}
+.golf{
+    display: inline;
+    margin-left: 15px;
+}
+.eSports{
+    display: inline;
+    margin-left: 15px;
+}
+.calgos{
+    display: inline;
+    margin-left: 15px;
+}
+.caballos{
+    display: inline;
+    margin-left: 15px;
 }

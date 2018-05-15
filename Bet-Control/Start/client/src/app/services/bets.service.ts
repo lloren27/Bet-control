@@ -33,10 +33,9 @@ export class BetsService {
     };
     return this.http
       .post(`${this.BASE_URL}/newbet`, newBet, this.options)
-      .map(res => {
-        res.json();
-        this.router.navigate(['/bets']);
-      });
+      .map(res => res.json());
+        //this.router.navigate(['/bets']);
+      //});
   }
   winBet(id) {
     return this.http

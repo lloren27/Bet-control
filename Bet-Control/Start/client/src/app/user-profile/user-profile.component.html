@@ -9,7 +9,7 @@
   <div class="bhouses">
     <div class="bhouse" *ngFor="let bhouse of bettingHouses">
       <h3 class="nombre"> {{ bhouse.name }} </h3>
-      <h3 class="dinero">{{ bhouse.bank }}€ </h3>
+      <h3 class="dinero">{{ bhouse.bank.toFixed(2) }}€ </h3>
       <a class="ingreso" [routerLink]="['/bettingHouse/edit', bhouse._id]"> Realiza un ingreso</a>
     </div>
   </div>

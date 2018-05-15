@@ -1,10 +1,28 @@
-header{
-    background-color: #318700;
+
+.barra{
+    background-color: #318700 ;
 }
+     
 .hola{
     color:white;
     border-color: white;
     border:2px solid;
     border-radius: 10px;
     padding: 19px;
+}
+
+.lateral{
+    background-color: #318700 !important;
+    
+
+}
+.nav-text{
+    color: black!important;
+}
+.appendientes{
+    border:2px solid black!important;
+    padding: 5px!important;
+    border-radius: 530px!important;
+    margin-right: 10px
+
 }

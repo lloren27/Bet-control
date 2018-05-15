@@ -28,35 +28,38 @@ router.get("/detail/:id", (req, res, next) => {
     .then(bet => res.json(bet))
     .catch(e => next(e));
 });
-  // Create
+  //Create
   router.post("/newbet", (req, res, next) => {
     const bet = _.pick(req.body, fields);
     Bet.create(bet)
-      .then(bet => res.json(bet))
-      .catch(e => next(e));
+      .then(bet => {
+        //res.json(bet)
+        Bet.findById(bet._id)
+        .then(bet => {
+          const bettingHouseId = bet.bettingHouse
+          BettingHouse.findById(bettingHouseId)
+            .then(bettinghouse => {
+              const newbank = bettinghouse.bank - (bet.moneyBet)
+              const bank = newbank;
+              const update = {
+                bank: newbank
+              };
+              BettingHouse.findByIdAndUpdate(bettingHouseId, update).then(bettinghouse => {
+                bettinghouse.bank = newbank;
+                console.log("NEW", bettinghouse)
+    
+                return res.json(`Tu apuesta se ha realizado, el saldo de tu cuenta es ${newbank}`);
+              })
+            })
+        })
+      })
+      //.catch(e => next(e));
   });
 // Updatebank  
-router.post("/newbet/:id", (req, res, next) => {
-  const betId = req.params.id;
-  Bet.findById(betId)
-    .then(bet => {
-      const bettingHouseId = bet.bettingHouse
-      BettingHouse.findById(bettingHouseId)
-        .then(bettinghouse => {
-          const newbank = bettinghouse.bank - (bet.moneyBet)
-          const bank = newbank;
-          const update = {
-            bank: newbank
-          };
-          BettingHouse.findByIdAndUpdate(bettingHouseId, update).then(bettinghouse => {
-            bettinghouse.bank = newbank;
-            console.log("NEW", bettinghouse)
-
-            return res.json(`Tu apuesta se ha realizado, el saldo de tu cuenta es ${newbank}`);
-          })
-        })
-    })
-})
+// router.post("/newbet/:id", (req, res, next) => {
+//   const betId = req.params.id;
+  
+ // })
 
 // Certificate Winnerbet
 router.post("/certificatedBetWin/:id", (req, res, next) => {
@@ -108,16 +111,21 @@ router.post("/certificatedCashOut/:id", (req, res, next) => {
       const update = {
         bank: parseInt(newbank)
       };
+      const update2 ={
+        parcialGain: parseInt(cashOut)
+      }
       Bet.findByIdAndUpdate(betId, update1).then(bet => {
         bet.status = update1.status
+        // bet.parcialGain = upadate2.parcialGain
         console.log("CASH OUT STATUS", bet)
         BettingHouse.findByIdAndUpdate(bettingHouseId, update).then(bettinghouse => {
           bettinghouse.bank = update.bank;
           console.log("CASH OUT", bettinghouse)
-
+          Bet.findByIdAndUpdate(betId, update2).then(bet => {
+            bet.parcialGain = update2.parcialGain
           return res.json(`Has retirado tu apuesta antes de tiempo y has ingresado ${cashOut}`)
         })
-
+      })
       })
     })
 

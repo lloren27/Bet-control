@@ -4,23 +4,24 @@
   <h1 class="titulo">Apuestas pendientes</h1>
 <div class="row">
     <div class="col-lg-5 col-md-8 col-sm-12 col-xs-12">
-        <div class="card" *ngFor="let bet of bets">
-            <!-- <div class="card-header">
-                {{ bet.bettingHouse }}
-            </div> -->
+        <div class="card" *ngFor="let bet of bets"> 
+            <div class="card-header">
+                {{ bet.bettingHouse}}
+            </div>
             <div class="card-block">
                 <div class="card-title">
                     {{ bet.sport }}
+                    {{ total}}
                 </div>
                 <div class="card-text">
                     {{ bet.betDescription }}
                 </div>
             </div>
             <div class="card-footer">
-                <a [routerLink]="['/bet/detail', bet._id]"><img class="lupa" src="https://res.cloudinary.com/lloren27/image/upload/v1526227603/lupa_negra.png"></a>
+                <a [routerLink]="['/bet/detail', bet._id]"><img class="lupa" src="https://res.cloudinary.com/lloren27/image/upload/v1526339343/add-searching.png"></a>
             </div>
         </div>
     </div>
 </div>
 </div>
-<a [routerLink]="['/profile']" class="btn btn-success iraperfil" >Ir al Perfil</a>
+<!-- <a [routerLink]="['/profile']" class="btn btn-success iraperfil" >Ir al Perfil</a> -->
