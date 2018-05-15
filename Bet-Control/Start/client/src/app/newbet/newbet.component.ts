@@ -16,11 +16,12 @@ export class NewbetComponent implements OnInit {
   bet:any;
   bettingFee: number;
   betDescription: string;
-  moneyBet: number;
+  moneyBet: any;
   bhouseName: Array<String>;
   user:any
   isDataAvailable: Boolean = false;
   sports: Array<String>;
+  bettingHousesBank:any;
   constructor(public Bet: BetsService, public Betting:BettinghousesService, public router: Router,public sessionService: SessionService) { }
 
   ngOnInit() {
@@ -34,16 +35,30 @@ export class NewbetComponent implements OnInit {
   })
   this.sports = ['Futbol', 'Baloncesto', 'Tenis', 'F1',
       'Motociclismo', 'Golf', 'Ciclismo', 'eSports','Carreras de Galgos','Carreras de Caballos']
+
+  
  
   }
   createNewBet(userId,bettingHouse,betDescription,sport,moneyBet,bettingFee) {
+    this.Betting.getBettingHouses(this.user).subscribe(user =>{
+      this.user = user;
+      this.bettingHouses = user.bettingHouse;
+      this.bettingHouses.forEach (e =>{
+        this.bettingHousesBank = e.bank 
 
-    console.log(sport, betDescription,moneyBet,bettingFee,bettingHouse,userId)
-    this.Bet.addBet(userId,bettingHouse,betDescription,sport,moneyBet,bettingFee).subscribe(() => {
-      
-    })
+    if (moneyBet < bettingHouse){
 
+      console.log (moneyBet)
+      console.log (bettingHouse)
+      // console.log(sport, betDescription,moneyBet,bettingFee,bettingHouse,userId)
+    this.Bet.addBet(userId,bettingHouse,betDescription,sport,moneyBet,bettingFee).subscribe(() => this.router.navigate(['/profile']));
+
+    }
+  })
+})
+    
   }
 }
+
 
 

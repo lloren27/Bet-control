@@ -39,20 +39,12 @@ export class StatisticsComponent implements OnInit {
   ganadas: number = 0;
   tCashout:number=0;
   tganado:any;
+  beneficioreal:any;
   public pieChartLabels:string[] = ['Gastado', 'Ingresado', 'Beneficio Neto'];
   public pieChartType:string = 'pie';
   public radarChartLabels:string[] = ['Futbol', 'Baloncesto', 'Tenis', 'F1', 'Motociclismo', 'Golf', 'eSports','Carreras de Galgos',"Carreras de Caballos"];
   public radarChartType:string = 'radar';
-  public chartOptions:any = { 
-    scale: {
-      ticks: {
-        beginAtZero: true,
-        min: 0,
-        max: 5,
-        stepSize: 0.5
-      }
-    }
-  }
+  public chartOptions:any = { scale: {ticks: {beginAtZero: true,min: 0,max: 5,stepSize: 0.5}}}
   pieChartData:number[]
   radarChartData:any;
   futbol:any;
@@ -65,11 +57,6 @@ export class StatisticsComponent implements OnInit {
   galgos:any;
   caballos:any;
   porDeporte:Boolean = false;
-
-  
-
-
-  
 
   constructor(public Bets: BetsService, public Betting: BettinghousesService, public sessionService: SessionService, private router: Router) {
 
@@ -118,11 +105,12 @@ export class StatisticsComponent implements OnInit {
           
           this.tganado = this.ganadas + this.tCashout
           this.tganado = this.tganado.toFixed(2);
+          this.beneficioreal = ((this.tganado-this.dineroApostado).toFixed(2))
 
-          this.pieChartData= [this.dineroApostado,this.tganado,(this.tganado-this.dineroApostado)]
+          this.pieChartData= [this.dineroApostado,this.tganado,this.beneficioreal]
           
           this.radarChartData= [
-            {data: [this.futbol.length, this.baloncesto.length, this.tenis.length, this.f1.length, this.motos.length, this.golf.length, this.eSports.length,this.galgos.length,this.caballos.length], label: 'Deportes'},
+            {pointBackgroundColor: "orange", data: [this.futbol.length, this.baloncesto.length, this.tenis.length, this.f1.length, this.motos.length, this.golf.length, this.eSports.length,this.galgos.length,this.caballos.length], label: 'Deportes'},
           ]
           console.log (this.radarChartData)
         })
@@ -130,9 +118,12 @@ export class StatisticsComponent implements OnInit {
     });
   }
   gotoResult() {
-    this.isDataAvailable = true;
+    this.isDataAvailable = !this.isDataAvailable
+    if(this.isFalse = true){
+      this.isFalse = false
+    }
   }
-   // events
+   // eventos de la grafica 
    public chartClicked(e:any):void {
      console.log(e);
    }
@@ -142,7 +133,10 @@ export class StatisticsComponent implements OnInit {
    }
     
    gotoSpots(){
-    this.isFalse = true;;
+    this.isFalse = !this.isFalse
+    if(this.isDataAvailable = true){
+      this.isDataAvailable = false
+    }
    }
 
 }

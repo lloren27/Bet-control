@@ -3,9 +3,9 @@
   <button (click)="gotoResult()" class="btn btn-success">Estadisticas de apuestas realizadas</button>
 </div>
 <!-- ////////////////////////////////////datos por deporte/////////////////////////////////////////// -->
-<div *ngIf="isFalse" class="resume">
+<div *ngIf="isFalse" class="sports">
         <div class="divtot"><h3 class="totales">TOTAL: {{totals.length}}</h3></div>
-        <ul>
+        <ul class = "deportes">
             <li class="futbol">Futbol: {{futbol.length}}<img  src="https://res.cloudinary.com/lloren27/image/upload/v1526333413/futbol.png"></li>
             <li class="baloncesto">Baloncesto: {{baloncesto.length}}<img src="https://res.cloudinary.com/lloren27/image/upload/v1526333413/basketball.png"></li>
             <li class="tenis">Tenis: {{tenis.length}}<img src="http://res.cloudinary.com/lloren27/image/upload/v1526333414/tennis-racket.png"></li>
@@ -18,8 +18,8 @@
         </ul>
 
 <!-- ////////////////////////////////////grafico por deporte /////////////////////////////////////////// -->
-<div style="display: block">
-        <canvas baseChart
+<div class="hexagono" style="display: block">
+        <canvas class="grafico"  baseChart
                 [datasets]="radarChartData"
                 [labels]="radarChartLabels"
                 [chartType]="radarChartType"
@@ -33,15 +33,19 @@
 
 <div *ngIf="isDataAvailable" class="resume">
     <div class="divtot"><h3 class="totales">TOTAL: {{totals.length}}</h3></div>
-    <p class="ganada">Ganadas: {{wins.length}}
-    <img  src="http://res.cloudinary.com/lloren27/image/upload/v1526333414/smile.png">
-    </p>
-    <p class="perdida">Perdidas: {{losts.length}}<img src="https://res.cloudinary.com/lloren27/image/upload/v1526333414/sad.png"></p>
-    <p class="cashout">Cash Out: {{cashs.length}}<img src="https://res.cloudinary.com/lloren27/image/upload/v1526333413/exclamation.png"></p>
-    <p class="pending">Pendientes: {{pending.length}}<img src="https://res.cloudinary.com/lloren27/image/upload/v1526333414/icon_1.png"></p>
-    <p class="ganada">Importe Apostado: {{dineroApostado}}€ </p>
-    <p class="ganada">Importe Ganado: {{tganado}}€  </p>
-    <p class="ganada">Beneficio Real:{{(tganado-dineroApostado).toFixed(2)}}€ </p>
+<div class="grancantiad">   
+    <ul class= "cantidades">
+        <li class="detallecantidades">Ganadas: {{wins.length}}<img  src="http://res.cloudinary.com/lloren27/image/upload/v1526333414/smile.png"></li>
+        <li class="detallecantidades">Perdidas: {{losts.length}}<img src="https://res.cloudinary.com/lloren27/image/upload/v1526333414/sad.png"></li>
+        <li class="detallecantidades">Cash Out: {{cashs.length}}<img src="https://res.cloudinary.com/lloren27/image/upload/v1526333413/exclamation.png"></li>
+        <li class="detallecantidades">Pendientes: {{pending.length}}<img src="https://res.cloudinary.com/lloren27/image/upload/v1526333414/icon_1.png"></li>
+    </ul>
+    <ul class= "cantidades">
+        <li class="detallecantidades">Importe Apostado: {{dineroApostado}}€ </li>
+        <li class="detallecantidades">Importe Ganado: {{tganado}}€  </li>
+        <li class="detallecantidades">Beneficio Real:{{beneficioreal}}€</li>
+    </ul>
+</div>
 <!-- ////////////////////////////////////gráfico monetario /////////////////////////////////////////// -->
     <div style="display: block">
         <canvas baseChart

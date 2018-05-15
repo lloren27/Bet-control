@@ -13,7 +13,7 @@ export class BetsService {
 
 
   getBets(user) {
-    console.log(user)
+    // console.log(user)
     return this.http.get(`${this.BASE_URL}/${user._id}`,this.options )
       .map((res) => res.json());
   }
@@ -65,22 +65,22 @@ export class BetsService {
 
   }
   getWinBets(user) {
-    console.log(user)
+    // console.log(user)
     return this.http.get(`${this.BASE_URL}/win/${user._id}`,this.options )
       .map((res) => res.json());
   }
   getLostBets(user) {
-    console.log(user)
+    // console.log(user)
     return this.http.get(`${this.BASE_URL}/lost/${user._id}`,this.options )
       .map((res) => res.json());
   }
   getCashOutBets(user) {
-    console.log(user)
+    // console.log(user)
     return this.http.get(`${this.BASE_URL}/cashout/${user._id}`,this.options )
       .map((res) => res.json());
   }
   getTotalBets(user) {
-    console.log(user)
+    // console.log(user)
     return this.http.get(`${this.BASE_URL}/total/${user._id}`,this.options )
       .map((res) => res.json());
   }

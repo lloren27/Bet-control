@@ -15,7 +15,7 @@ export class BettinghousesService {
     private router: Router) { }
 
   getBettingHouses(user) {
-    console.log(user._id)
+    // console.log(user._id)
     return this.http.get(`http://localhost:3000/api/auth/profile/${user._id}`,this.options)
       .map((res) => res.json());
   }

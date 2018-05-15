@@ -47,7 +47,7 @@ img{
     margin-top:10px;
 }
 
-.futbol{
+/* .futbol{
     display: inline;
     margin-left: 15px;
 }
@@ -82,4 +82,43 @@ img{
 .caballos{
     display: inline;
     margin-left: 15px;
+} */
+.hexagono{
+    float: left;
+    text-align: center;
+    
+}
+.deportes{
+    float: left;
+    text-align: start;
+    list-style: none;
+    margin-left: 20px;
+}
+.grafico{
+    width: 600px;
+    margin-top: 50px;
+}
+.sports{
+    border: 3px solid #318700;
+    border-radius: 10px;
+    margin-top: 30px;
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    float: left;
+}
+.cantidades{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+}
+
+.detallecantidades {
+    float: left;
+    padding: 10px;
+    margin-left: 50px;
+} 
+.grancantidad{
+    text-align: center;
 }

@@ -21,6 +21,7 @@ export class UserBetsComponent implements OnInit {
   dia: any;
   total: any
   bettingHousesName:any;
+  pepe:Array<any> = [];
   constructor(public Bets: BetsService, public Betting: BettinghousesService, public sessionService: SessionService, private router: Router) {
 
   }
@@ -32,24 +33,61 @@ export class UserBetsComponent implements OnInit {
         this.user = user;
         this.bettingHouses = user.bettingHouse;
       })
-
+      // var pepe = []
       this.Bets.getBets(this.user).subscribe(bets => {
         this.bets = bets
-        console.log("APUESTAS", bets)
+        console.log (bets)
+
+        this.bettingHouses.forEach (bH =>{
+          this.bets.forEach(e=>{
+            // console.log(e)
+          if(e.bettingHouse == bH._id){ 
+            // console.log("en if")
+            let a = { 
+              bettingHouse : bH.name,
+              betDescription : e.betDescription,
+              sport : e.sport,
+              created_at : e.created_at,
+              _id: e._id
+            }
+            // console.log(e)
+            this.pepe.push(a)
+          }
+          })
+          console.log("PWPW",this.pepe)
+        })
+        
+
+        //console.log("APUESTAS", bets)
         this.bets.forEach(e => {
           this.fechas = e.created_at
+
           this.año = this.fechas.split('').splice(0, 4).join("");
           this.mes = this.fechas.split('').splice(5, 2).join("");
           this.dia = this.fechas.split('').splice(8, 2).join("");
+
           this.total = [this.dia,this.mes,this.año]
-          console.log(this.total)
+
+          // console.log(this.total)
+          // console.log(typeof this.fechas)
+
+          
         });
 
       });
       this.Betting.getBettingHouses(this.user).subscribe(user =>{
         this.user = user;
         this.bettingHouses = user.bettingHouse;
-        this.bettingHousesName = user.bettingHouse.name;
+        this.bettingHouses.forEach (e =>{
+          this.bettingHousesName = e.name 
+
+          //console.log (this.bettingHousesName)
+
+
+        })
     })
   })
+
+
 } }
+
