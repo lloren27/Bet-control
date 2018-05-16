@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class BetsService {
 
-  BASE_URL: string = 'http://localhost:3000/api/bet';
+  BASE_URL: string = 'environment.BASEURL';
   options: object = { withCredentials: true };
 
   constructor(private http: Http, private router: Router) { }
@@ -14,11 +14,11 @@ export class BetsService {
 
   getBets(user) {
     // console.log(user)
-    return this.http.get(`${this.BASE_URL}/${user._id}`,this.options )
+    return this.http.get(`${this.BASE_URL}/api/bet/${user._id}`,this.options )
       .map((res) => res.json());
   }
   getBet(id) {
-    return this.http.get(`${this.BASE_URL}/detail/${id}`,this.options)
+    return this.http.get(`${this.BASE_URL}/api/bet/detail/${id}`,this.options)
       .map((res) => res.json());
   }
   addBet(userId: string,bettingHouse: string,sport: string, betDescription: string, moneyBet: number,
@@ -32,14 +32,14 @@ export class BetsService {
       bettingFee: bettingFee,
     };
     return this.http
-      .post(`${this.BASE_URL}/newbet`, newBet, this.options)
+      .post(`${this.BASE_URL}/api/bet/newbet`, newBet, this.options)
       .map(res => res.json());
         //this.router.navigate(['/bets']);
       //});
   }
   winBet(id) {
     return this.http
-      .post(`${this.BASE_URL}/certificatedBetWin/${id}`, this.options)
+      .post(`${this.BASE_URL}/api/bet/certificatedBetWin/${id}`, this.options)
       .map(res => {
         res.json();
         this.router.navigate(['/profile']);
@@ -48,7 +48,7 @@ export class BetsService {
   }
   LooseBet(id) {
     return this.http
-      .post(`${this.BASE_URL}/certificatedFailed/${id}`, this.options)
+      .post(`${this.BASE_URL}/api/bet/certificatedFailed/${id}`, this.options)
       .map(res => {
         res.json();
         this.router.navigate(['/profile']);
@@ -57,7 +57,7 @@ export class BetsService {
   }
   cashOutBet(id, cashOut) {
     return this.http
-      .post(`${this.BASE_URL}/certificatedCashOut/${id}`, { cashOut }, this.options)
+      .post(`${this.BASE_URL}/api/bet/certificatedCashOut/${id}`, { cashOut }, this.options)
       .map(res => {
         res.json();
         this.router.navigate(['/profile']);
@@ -66,12 +66,12 @@ export class BetsService {
   }
   getWinBets(user) {
     // console.log(user)
-    return this.http.get(`${this.BASE_URL}/win/${user._id}`,this.options )
+    return this.http.get(`${this.BASE_URL}/api/bet/win/${user._id}`,this.options )
       .map((res) => res.json());
   }
   getLostBets(user) {
     // console.log(user)
-    return this.http.get(`${this.BASE_URL}/lost/${user._id}`,this.options )
+    return this.http.get(`${this.BASE_URL}/api/bet/lost/${user._id}`,this.options )
       .map((res) => res.json());
   }
   getCashOutBets(user) {

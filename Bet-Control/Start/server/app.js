@@ -32,7 +32,7 @@ const app = express();
 
 // Middleware Setup
 var whitelist = [
-  'http://localhost:4200',
+  'http://localhost:3000',
 ];
 var corsOptions = {
   origin: function(origin, callback){

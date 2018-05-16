@@ -7,7 +7,7 @@ import 'rxjs';
 @Injectable()
 export class BettinghousesService {
 
-  BASE_URL: string = 'http://localhost:3000/api/bettingHouse';
+  BASE_URL: string = 'environment.BASEURL';
   options: object = { withCredentials: true };
 
   constructor(private http: Http,
@@ -16,12 +16,12 @@ export class BettinghousesService {
 
   getBettingHouses(user) {
     // console.log(user._id)
-    return this.http.get(`http://localhost:3000/api/auth/profile/${user._id}`,this.options)
+    return this.http.get(`${this.BASE_URL}/api/auth/profile/${user._id}`,this.options)
       .map((res) => res.json());
   }
   editBettingHouse(bettingHouse, id) {
     console.log(bettingHouse, id)
-    return this.http.put(`${this.BASE_URL}/income/${id}`, { newincome: bettingHouse },this.options)
+    return this.http.put(`${this.BASE_URL}/api/bettingHouse/income/${id}`, { newincome: bettingHouse },this.options)
       .map((res) => res.json());
   }
   addBettingHouse(name: string, bank: number) {
@@ -31,7 +31,7 @@ export class BettinghousesService {
       bank: bank,
     };
     return this.http
-      .post(`${this.BASE_URL}/income/new`, newBettingHouse, this.options)
+      .post(`${this.BASE_URL}/api/bettingHouse/income/new`, newBettingHouse, this.options)
       .map((res) => res.json());
   }
 
