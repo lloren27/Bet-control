@@ -23,8 +23,7 @@ export class NewbettinghouseComponent implements OnInit {
 
   createNewBettingHouse(name, bank) {
     console.log(name, bank)
-    this.Betting.addBettingHouse(name, bank).subscribe()
-
+    this.Betting.addBettingHouse(name, bank).subscribe(() => this.router.navigate(['/profile']));
   }
 
 

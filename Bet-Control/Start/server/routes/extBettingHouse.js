@@ -40,8 +40,7 @@ router.post("/new", (req, res, next) => {
         console.log(user)
         user.bettingHouse.push(bettinghouse._id);
         user.save();
-        console.log("JESUS AMEN DOMINGO", user)
-        res.status(200).json()
+        res.status(200).json(user)
       })
       // .then((user) => {
       //   console.log("JESUS AMEN DOMINGO", user)

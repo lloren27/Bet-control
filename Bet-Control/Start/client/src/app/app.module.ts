@@ -21,6 +21,7 @@ import { NewbetComponent } from './newbet/newbet.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import * as moment from 'moment';
 import { ChartsModule } from 'ng2-charts';
+import { MatchsComponent } from './matchs/matchs.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ChartsModule } from 'ng2-charts';
     EditbettinghouseComponent,
     BetsDetailsComponent,
     NewbetComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    MatchsComponent
 ],
   imports: [
     BrowserModule,

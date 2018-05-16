@@ -1,17 +1,25 @@
 .titulo{
     text-align: center;
-    color:#60B515;
+    color:#318700;
     font-size:90px;
     margin-bottom: 50px;
     margin-top: 50px;
+    font-family: 'Graduate', cursive;
 }
 form{
     text-align: center;
 }
 .campos{
     margin-bottom: 30px;
+    font-family: 'Viga';
+    color: #434642
 }
-.botonera{
-    background-color:#60B515;
-    color:white;
+button{
+    background-color:#318700!important;
+    color:white!important;
+    border-color: white;
+    width: 400px;
+    height: 100px;
+    font-size: 30px;
+    padding:20px;
 }

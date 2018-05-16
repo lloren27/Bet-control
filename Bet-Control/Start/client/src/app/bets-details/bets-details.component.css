@@ -5,9 +5,40 @@
 }
 .col-xs-12{
     margin-bottom:50px;
-    margin-left: 50px;
+    
 }
 .irpefil{
     margin-left: 50px;
 
+}
+.descripcion{
+    color: #318700;
+    font-family: 'Graduate', cursive;
+    font-size: 30px;
+    text-align: center;
+}
+.entrar{
+    width: 75px;
+}
+
+.card-title h4{
+    color: #318700;
+    font-family: 'Contrail One', cursive;
+}
+.card-title h3{
+    color: #318700;
+    font-family: 'Contrail One', cursive;
+}
+
+.card-title p{
+    color: #318700;
+    font-family: 'Contrail One', cursive;
+}
+
+.card-title span{
+    font-family: 'Viga';
+    color: #434642
+}
+.posibles{
+    font-size: 30px
 }

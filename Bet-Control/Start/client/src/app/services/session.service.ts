@@ -8,7 +8,7 @@ export class SessionService {
 
   BASE_URL = 'http://localhost:3000';
   user: any;
-  userEvent: EventEmitter<any> = new EventEmitter();
+  //userEvent: EventEmitter<any> = new EventEmitter();
   options: any = { withCredentials: true };
 
   constructor(private http: Http) {
@@ -21,7 +21,7 @@ export class SessionService {
 
   handleUser(user?: object) {
     this.user = user;
-    this.userEvent.emit(this.user);
+    //this.userEvent.emit(this.user);
     return this.user;
   }
 
@@ -46,7 +46,7 @@ export class SessionService {
       .get(`${this.BASE_URL}/api/auth/logout`, this.options)
       .map(res => res.json())
       .map(() => this.handleUser())
-      .catch((e) => Observable.throw(e.json().message));
+      .catch(this.handleError);
   }
 
   isLoggedIn() {

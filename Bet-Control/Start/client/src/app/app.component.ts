@@ -31,10 +31,11 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.sessionService.userEvent.subscribe(user => {
+    this.sessionService.isLoggedIn().subscribe(user => {
       this.user = JSON.parse(user._body);
       this.Bets.getBets(this.user).subscribe(bets => {
         this.bets = bets;
+        console.log(bets.length)
       })
     })
   

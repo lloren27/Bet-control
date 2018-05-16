@@ -3,9 +3,6 @@
   <button (click)="gotoResult()" class="btn btn-success">Estadisticas de apuestas realizadas</button>
 </div>
 <!-- ////////////////////////////////////datos por deporte/////////////////////////////////////////// -->
-
-        
-
 <!-- ////////////////////////////////////grafico por deporte /////////////////////////////////////////// -->
 <!--  -->
 
@@ -15,27 +12,27 @@
             <div class="card-img">  
                 <div class="divtot"><h3 class="totales">TOTAL: {{totals.length}}</h3></div>
                 <div class="hexagono" style="display: block">
-                        <canvas class="grafico"  baseChart
-                                [datasets]="radarChartData"
-                                [labels]="radarChartLabels"
-                                [chartType]="radarChartType"
-                                (chartHover)="chartHovered($event)"
-                                (chartClick)="chartClicked($event)"
-                                [options]="chartOptions">
-                            </canvas>
+                        <canvas baseChart
+                        [data]="polarAreaChartData"
+                        [labels]="polarAreaChartLabels"
+                        [legend]="polarAreaLegend"
+                        [chartType]="polarAreaChartType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)">
+                    </canvas>
                       </div>
                 </div>
         <div class="card-block">
         <ul class = "deportes">
                 <li class="futbol">Futbol: {{futbol.length}}<img class="imgdpts" src="https://res.cloudinary.com/lloren27/image/upload/v1526333413/futbol.png">Baloncesto: {{baloncesto.length}}<img class="imgdpts" src="https://res.cloudinary.com/lloren27/image/upload/v1526333413/basketball.png"></li>
                 <li class="baloncesto"></li>
-                <li class="tenis">Tenis: {{tenis.length}}<img class="imgdpts" src="http://res.cloudinary.com/lloren27/image/upload/v1526333414/tennis-racket.png">F1: {{f1.length}}<img class="imgdpts" src="https://res.cloudinary.com/lloren27/image/upload/v1526333413/f1-car.png"></li>
+                <li class="tenis">Tenis: {{tenis.length}}<img class="imgdpts" src="http://res.cloudinary.com/lloren27/image/upload/v1526333414/tennis-racket.png">F1: {{f1.length}}<img class="imgdpts" src="https://res.cloudinary.com/lloren27/image/upload/v1526333413/f1-car.png">Motociclismo: {{motos.length}}<img class="imgdpts" src="https://res.cloudinary.com/lloren27/image/upload/v1526333414/motorcycle.png"></li>
                 <li class="f1"></li>
-                <li class="motos">Motociclismo: {{motos.length}}<img class="imgdpts" src="https://res.cloudinary.com/lloren27/image/upload/v1526333414/motorcycle.png">Golf: {{golf.length}}<img class="imgdpts" src="https://res.cloudinary.com/lloren27/image/upload/v1526333414/golf.png"></li>
+                <li class="motos">Golf: {{golf.length}}<img class="imgdpts" src="https://res.cloudinary.com/lloren27/image/upload/v1526333414/golf.png">eSports: {{eSports.length}}<img class="imgdpts" src="https://res.cloudinary.com/lloren27/image/upload/v1526333414/gamepad.png"></li>
                 <li class="golf"></li>
-                <li class="eSports">eSports: {{eSports.length}}<img class="imgdpts" src="https://res.cloudinary.com/lloren27/image/upload/v1526333414/gamepad.png">Galgos: {{galgos.length}}<img class="imgdpts" src="https://res.cloudinary.com/lloren27/image/upload/v1526333414/greyhound.png"></li>
+                <li class="eSports">Galgos: {{galgos.length}}<img class="imgdpts" src="https://res.cloudinary.com/lloren27/image/upload/v1526333414/greyhound.png">Carrera de caballos: {{caballos.length}}<img class="imgdpts" src="https://res.cloudinary.com/lloren27/image/upload/v1526333414/horse.png"></li>
                 <li class="calgos"></li>
-                <li class="caballos">Carrera de caballos: {{caballos.length}}<img class="imgdpts" src="https://res.cloudinary.com/lloren27/image/upload/v1526333414/horse.png"></li>
+                <li class="caballos"></li>
 
             <!-- <li class="futbol">Futbol: {{futbol.length}}<img  src="https://res.cloudinary.com/lloren27/image/upload/v1526333413/futbol.png"></li>
             <li class="baloncesto">Baloncesto: {{baloncesto.length}}<img src="https://res.cloudinary.com/lloren27/image/upload/v1526333413/basketball.png"></li>

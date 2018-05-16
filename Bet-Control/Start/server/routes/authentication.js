@@ -80,21 +80,8 @@ router.get("/profile/:id", (req, res, next) => {
     User.findById(userId)
     .populate("bettingHouse")
     .then(user => {
-    //   console.log("JESUS AMEN", user)
-    //   const name = user.bettingHouse.name
-    //   const bank = user.bettingHouse.bank
       return res.status(200).json(user);
     })
 });
-
-// const userId = req.params.id;
-//     console.log(userId)
-//     const {id_bettinghouse} = req.params;
-//     console.log(id_bettinghouse)
-//     BettingHouse.findById(id_bettinghouse)
-//     .populate("name")
-//     .populate("bank")
-//     .then(bettinghouse => res.json(bettinghouse))
-//     }
 
 module.exports = router;

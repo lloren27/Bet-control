@@ -2,8 +2,23 @@
     text-align: center;
 }
 img{
-    width:450px;
+    width:300px;
+    margin-top: 30px;
 }
 .sign{
     display: inline;
+}
+h1{
+    font-family: 'Graduate', cursive;
+    color: #318700;
+    font-size:50px;
+}
+h3{
+    font-family: 'Viga', sans-serif;
+    opacity: 0.7;
+
+}
+a{
+    color: #318700;
+    text-decoration-line: underline;
 }

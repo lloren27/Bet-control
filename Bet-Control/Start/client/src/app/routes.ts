@@ -9,6 +9,7 @@ import { EditbettinghouseComponent } from './editbettinghouse/editbettinghouse.c
 import { BetsDetailsComponent } from './bets-details/bets-details.component';
 import { NewbetComponent } from './newbet/newbet.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { MatchsComponent } from './matchs/matchs.component';
 
 export const routes: Routes = [
   { path: '', component:MainComponent},
@@ -21,5 +22,6 @@ export const routes: Routes = [
   { path: "bettingHouse/new", component: NewbettinghouseComponent },
   { path: "bettingHouse/edit/:id", component: EditbettinghouseComponent },
   { path: "statistics", component: StatisticsComponent },
+  { path: "matchs", component: MatchsComponent },
   { path: '**', redirectTo: '' },
 ];

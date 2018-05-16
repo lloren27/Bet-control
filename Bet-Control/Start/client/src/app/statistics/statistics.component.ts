@@ -42,11 +42,13 @@ export class StatisticsComponent implements OnInit {
   beneficioreal:any;
   public pieChartLabels:string[] = ['Gastado', 'Ingresado', 'Beneficio Neto'];
   public pieChartType:string = 'pie';
-  public radarChartLabels:string[] = ['Futbol', 'Baloncesto', 'Tenis', 'F1', 'Motociclismo', 'Golf', 'eSports','Carreras de Galgos',"Carreras de Caballos"];
+  public polarAreaChartLabels:string[] = ['Futbol', 'Baloncesto', 'Tenis', 'F1', 'Motociclismo', 'Golf', 'eSports','Carreras de Galgos',"Carreras de Caballos"];
   public radarChartType:string = 'radar';
-  public chartOptions:any = { scale: {ticks: {beginAtZero: true,min: 0,max: 5,stepSize: 0.5}}}
+  public chartOptions:any = { scale: {ticks: {beginAtZero: true,min: 0,max: 6,stepSize: 1}}}
+  public polarAreaLegend:boolean = false;
+  public polarAreaChartType:string = 'polarArea';
   pieChartData:number[]
-  radarChartData:any;
+  polarAreaChartData:any;
   futbol:any;
   baloncesto:any;
   tenis:any;
@@ -109,10 +111,8 @@ export class StatisticsComponent implements OnInit {
 
           this.pieChartData= [this.dineroApostado,this.tganado,this.beneficioreal]
           
-          this.radarChartData= [
-            {pointBackgroundColor: "orange", data: [this.futbol.length, this.baloncesto.length, this.tenis.length, this.f1.length, this.motos.length, this.golf.length, this.eSports.length,this.galgos.length,this.caballos.length], label: 'Deportes'},
-          ]
-          console.log (this.radarChartData)
+          this.polarAreaChartData= [this.futbol.length, this.baloncesto.length, this.tenis.length, this.f1.length, this.motos.length, this.golf.length, this.eSports.length,this.galgos.length,this.caballos.length]
+          
         })
       });
     });

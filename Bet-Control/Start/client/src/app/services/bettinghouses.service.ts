@@ -32,10 +32,7 @@ export class BettinghousesService {
     };
     return this.http
       .post(`${this.BASE_URL}/income/new`, newBettingHouse, this.options)
-      .map(res => {
-        res.json();
-        this.router.navigate(['/profile']);
-      });
+      .map((res) => res.json());
   }
 
 }
