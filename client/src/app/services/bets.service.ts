@@ -76,12 +76,12 @@ export class BetsService {
   }
   getCashOutBets(user) {
     // console.log(user)
-    return this.http.get(`${this.BASE_URL}/cashout/${user._id}`,this.options )
+    return this.http.get(`${this.BASE_URL}/api/bet/cashout/${user._id}`,this.options )
       .map((res) => res.json());
   }
   getTotalBets(user) {
     // console.log(user)
-    return this.http.get(`${this.BASE_URL}/total/${user._id}`,this.options )
+    return this.http.get(`${this.BASE_URL}/api/bet/total/${user._id}`,this.options )
       .map((res) => res.json());
   }
 
