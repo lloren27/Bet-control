@@ -1,35 +1,47 @@
 
-
 <form>
-  <h2 class="titulo"> Crea una nueva Apuestas</h2>
-  <div hidden="hidden" >{{user._id}}</div>
-  <div>
-    <label> Casa de apuestas </label>
-    <select #select>
-      <option *ngFor="let e of bettingHouses" [value]="e._id">
-        <p>{{e.name}}</p>
-      </option>
-    </select>
-  </div>
-  <select #select2>
-      <option *ngFor="let e of sports" [value]="e">
-        <p>{{e}}</p>
-      </option>
-    </select>
-    <br>
-  <label> Descripción de la apuesta </label>
-  <input type="text" [(ngModel)]="betDescription" name="betDescription" />
-  <br>
-  <label> Cantidad apostada </label>
-  <input type="number" [(ngModel)]="moneyBet" name="moneyBet" />
-  <br>
-  <label> Cuota de apuesta </label>
-  <input type="number" [(ngModel)]="bettingFee" name="bettingFee" />
-  <br>
-  <div>
-    <button class="btn btn-success btn-sm" (click)="createNewBet(user._id,select.value,select2.value,betDescription,moneyBet,bettingFee)">Crear Apuesta </button>
+  <div class="row">
+    <div class="col-lg-5 col-md-8 col-sm-12 col-xs-12">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="titulo"> Crea una nueva Apuesta</h2>
+        </div>
+        <div class="card-block">
+          <div class="card-title">
+            <div>
+              <label> Casa de apuestas </label>
+              <select #select>
+                <option *ngFor="let e of bettingHouses" [value]="e._id">
+                  <p>{{e.name}}</p>
+                </option>
+              </select>
+            </div>
+            <div>
+                <label> Deporte </label>
+              <select #select2>
+                <option *ngFor="let e of sports" [value]="e">
+                  <p>{{e}}</p>
+                </option>
+              </select>
+            </div>
+            <label> Descripción de la apuesta </label>
+            <input type="text" [(ngModel)]="betDescription" name="betDescription" />
+            <br>
+            <label> Cantidad apostada </label>
+            <br>
+            <input type="number" [(ngModel)]="moneyBet" name="moneyBet" />
+            <br>
+            <label> Cuota de apuesta </label>
+            <br>
+            <input type="number" [(ngModel)]="bettingFee" name="bettingFee" />
+            <br>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class ="nerror" *ngIf = "error != ''">{{error}}</div>
+          <button class="btn btn-success btn-sm jose" (click)="createNewBet(user._id,select.value,select2.value,betDescription,moneyBet,bettingFee)">Crear Apuesta </button>
+        </div>
+      </div>
+    </div>
   </div>
 </form>
-<p class="error"> {{ error }} </p>
-
-<!-- <a [routerLink]="['/profile']" class="btn btn-success iraperfil">Ir al Perfil</a> -->

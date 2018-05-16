@@ -1,22 +1,42 @@
-.profile{
-    margin-left: 20px;
+.welcome{
+    margin-bottom: 30px;
+    color: #318700;
+    font-family: 'Graduate', cursive;
+    font-size: 40px;
+    text-align: center;
+}
+li{
+    list-style: none;
+}
+.dinero{
+    display: inline;
+    margin-left: 10px;
+    border:2px solid #318700;
+    background: #318700;
+    border-radius: 10px;
+    color:white;
+    padding:5px;
+}
+.nombre{
+    margin-bottom: 10px;
+    margin-top:5px
 }
 .houses{
-    display: inline
+    display: inline;
+    font-family: 'Carter One', cursive;
+    opacity: 0.6;
 }
 .nueva{
     display: inline;
     margin-left: 20px;
 }
-.nombre{
-    display: inline;
-}
-.dinero{
-    display: inline;
-    margin-left: 10px;
-}
 .ingreso{
-    margin-left: 200px;
+    margin-top: 10px;
+}
+a{
+    color: #318700;
+    text-decoration: underline;
+
 }
 .bhouses{
     border:3px solid green;
@@ -29,10 +49,7 @@
 .introcasas{
     text-align:center;
 }
-.welcome{
-    margin-bottom: 50px;
-    color: #318700;
-}
+
 .irapuestas{
     background-color: #FAC400;
 }

@@ -21,16 +21,14 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sessionService.userEvent.subscribe(user => {
-      this.user = JSON.parse(user._body);
-      this.Betting.getBettingHouses(this.user).subscribe(user =>{
-        this.user = user;
-        this.bettingHouses = user.bettingHouse;
-        this.isDataAvailable = true
-        console.log("DENTRO")
-      })
-    })
-   
+   this.sessionService.isLoggedIn().subscribe((user)=>{
+    this.user = JSON.parse(user._body);
+    this.Betting.getBettingHouses(this.user).subscribe(user =>{
+          this.user = user;
+          this.bettingHouses = user.bettingHouse;
+          this.isDataAvailable = true
+        })
+   })
   }
 
  

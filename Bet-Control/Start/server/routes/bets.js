@@ -15,6 +15,7 @@ router.get('/:id', (req, res) => {
     Bet.find({
       userId: user,status:"Pending"
     })
+    .populate("bettingHouse")
     .then(bets => {
       //Traigo las apuestas que tienen ese betting house
       console.log(bets)

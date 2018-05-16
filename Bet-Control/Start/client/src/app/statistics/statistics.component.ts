@@ -62,7 +62,7 @@ export class StatisticsComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.sessionService.userEvent.subscribe(user => {
+    this.sessionService.isLoggedIn().subscribe(user => {
       this.user = JSON.parse(user._body);
       this.Betting.getBettingHouses(this.user).subscribe(user => {
         this.user = user;

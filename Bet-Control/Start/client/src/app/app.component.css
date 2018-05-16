@@ -13,19 +13,24 @@
 
 .lateral{
     background-color: #318700 !important;
+    opacity: 0.8!important;
     
 
 }
 .nav-text{
-    color: black!important;
+    color:white!important;
 }
 .appendientes{
-    border:2px solid black!important;
+    border:2px solid white!important;
     padding: 5px!important;
     border-radius: 530px!important;
     margin-right: 10px
 
 }
-.title{
-    margin-right: 20px!important;
+.perfil{
+    
+    width: 40px;
+}
+span{
+    margin-right: 5px;
 }

@@ -41,63 +41,72 @@
     border: 1px solid #318700;
     border-radius: 5px;
 }
-img{
+.caras{
     width: 35px;
-    margin-left: 22px;
-    margin-top:10px;
+    margin-left: 12px;
+    margin-top:5px;
 }
 
 /* .futbol{
-    display: inline;
-    margin-left: 15px;
+    float: left;
+    padding: 10px;
+    margin-left: 50px;
 }
 .baloncesto{
-    display: inline;
-    margin-left: 15px;
+    float: left;
+    padding: 10px;
+    margin-left: 50px;
 }
 .tenis{
-    display: inline;
-    margin-left: 15px;
+    float: left;
+    padding: 10px;
+    margin-left: 50px;
 }
 .f1{
-    display: inline;
-    margin-left: 15px;
+    float: left;
+    padding: 10px;
+    margin-left: 50px;
 }
 .motos{
-    display: inline;
-    margin-left: 15px;
+    float: left;
+    padding: 10px;
+    margin-left: 50px;
 }
 .golf{
-    display: inline;
-    margin-left: 15px;
+    float: left;
+    padding: 10px;
+    margin-left: 50px;
 }
 .eSports{
-    display: inline;
-    margin-left: 15px;
+    float: left;
+    padding: 10px;
+    margin-left: 50px;
 }
-.calgos{
-    display: inline;
-    margin-left: 15px;
+.galgos{
+    float: left;
+    padding: 10px;
+    margin-left: 50px;
 }
 .caballos{
-    display: inline;
-    margin-left: 15px;
-} */
+    float: left;
+    padding: 10px;
+    margin-left: 50px;
+}
 .hexagono{
     float: left;
     text-align: center;
     
 }
 .deportes{
-    float: left;
-    text-align: start;
-    list-style: none;
-    margin-left: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
 }
 .grafico{
     width: 600px;
     margin-top: 50px;
-}
+} */
 .sports{
     border: 3px solid #318700;
     border-radius: 10px;
@@ -118,7 +127,47 @@ img{
     float: left;
     padding: 10px;
     margin-left: 50px;
-} 
+}
+.detalleBeneficio{
+    float: left;
+    padding: 10px;
+    margin-left: 50px;
+    color: #318700;
+    border: 1px solid; 
+    border-radius:10px;
+}
+.detallePerdidas{
+    float: left;
+    padding: 10px;
+    margin-left: 50px;
+    color: red;
+    border: 1px solid; 
+    border-radius:10px;
+}
 .grancantidad{
     text-align: center;
 }
+.grafico{
+    margin-top: 10px;
+    width: 350px;
+} 
+
+li{
+    list-style: none;
+    text-align: start;
+}
+.imgdpts{
+    width: 45px;
+    padding: 10px;
+}
+/* .hexagono{
+    float: left;
+    text-align: center;
+    
+}
+.deportes{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+} */

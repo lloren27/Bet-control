@@ -1,25 +1,26 @@
 
 
-<form>
-  <h2> Crea una nueva casa de Apuestas</h2>
 
-  <div>
-    <label> Nombre </label>
-    <select #select>
-      <option *ngFor="let e of bhouseName" [value]="e">
+<div class="row">
+    <div class="col-lg-5 col-md-8 col-sm-12 col-xs-12">
+      <div class="card">
+        <div class="card-header">
+        <h2 class="titulo"> Crea una nueva casa de Apuestas</h2>
+        </div>
+        <div class="card-block tarjeta">
+        <label> Nombre </label>
+        <select #select>
+        <option *ngFor="let e of bhouseName" [value]="e">
         <p>{{e}}</p>
-      </option>
-    </select>
+        </option>
+        </select>
+        <br>
+        <label> Bank </label>
+        <input type="number" [(ngModel)]="bank" name="bank" />
+        </div>
+        <div class="card-footer">
+        <button class="btn btn-success" (click)="createNewBettingHouse(select.value, bank)">Crear casa de apuesta </button>
+        </div>
+      </div>
+    </div>
   </div>
-  <br>
-  <label> Bank </label>
-  <input type="number" [(ngModel)]="bank" name="bank" />
-  <br>
-  <br>
-  <div>
-    <button class="btn btn-success" (click)="createNewBettingHouse(select.value, bank)">Crear casa de apuesta </button>
-  </div>
-</form>
-<p class="error"> {{ error }} </p>
-
-<!-- <a [routerLink]="['/profile']" class="btn btn-success irperfil ">Ir al Perfil</a> -->

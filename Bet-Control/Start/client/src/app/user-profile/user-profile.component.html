@@ -8,9 +8,11 @@
   </div>
   <div class="bhouses">
     <div class="bhouse" *ngFor="let bhouse of bettingHouses">
-      <h3 class="nombre"> {{ bhouse.name }} </h3>
-      <h3 class="dinero">{{ bhouse.bank.toFixed(2) }}€ </h3>
-      <a class="ingreso" [routerLink]="['/bettingHouse/edit', bhouse._id]"> Realiza un ingreso</a>
+      <ul>
+        <li><h3 class="nombre"> {{ bhouse.name }} </h3></li>
+        <li><h3 class="dinero">{{ bhouse.bank.toFixed(2) }}€ </h3></li>
+        <li><div class="ingreso"><a [routerLink]="['/bettingHouse/edit', bhouse._id]"> Realiza un ingreso<img class="income" src="https://res.cloudinary.com/lloren27/image/upload/v1526469595/man-and-cashier-machine_1.png"></a></div></li>
+      </ul>
     </div>
   </div>
   
