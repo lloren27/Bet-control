@@ -15,7 +15,7 @@ const cors = require('cors');
 
 mongoose.Promise = Promise;
 mongoose
-  .connect(process.env.DBURL, { useMongoClient: true })
+  .connect(process.env.DBURL)
   .then(() => {
     console.log("Connected to Mongo!");
   })
