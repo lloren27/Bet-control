@@ -2,18 +2,19 @@ import { Injectable } from '@angular/core';
 import { Http } from "@angular/http";
 import 'rxjs';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class BetsService {
 
-  BASE_URL: string = 'environment.BASEURL';
+  BASE_URL: string = environment.BASEURL;
   options: object = { withCredentials: true };
 
   constructor(private http: Http, private router: Router) { }
 
 
   getBets(user) {
-    // console.log(user)
+    console.log(this.BASE_URL)
     return this.http.get(`${this.BASE_URL}/api/bet/${user._id}`,this.options )
       .map((res) => res.json());
   }

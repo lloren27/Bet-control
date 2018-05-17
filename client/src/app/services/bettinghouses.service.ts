@@ -3,11 +3,12 @@ import { Http } from "@angular/http";
 import { SessionService } from './session.service';
 import { Router } from '@angular/router';
 import 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class BettinghousesService {
 
-  BASE_URL: string = 'environment.BASEURL';
+  BASE_URL: string = environment.BASEURL;
   options: object = { withCredentials: true };
 
   constructor(private http: Http,
