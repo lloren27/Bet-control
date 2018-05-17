@@ -1,3 +1,4 @@
+@media (max-width:990px){
 .selectstats{
     
     margin-top: 30px;
@@ -47,66 +48,6 @@
     margin-top:5px;
 }
 
-/* .futbol{
-    float: left;
-    padding: 10px;
-    margin-left: 50px;
-}
-.baloncesto{
-    float: left;
-    padding: 10px;
-    margin-left: 50px;
-}
-.tenis{
-    float: left;
-    padding: 10px;
-    margin-left: 50px;
-}
-.f1{
-    float: left;
-    padding: 10px;
-    margin-left: 50px;
-}
-.motos{
-    float: left;
-    padding: 10px;
-    margin-left: 50px;
-}
-.golf{
-    float: left;
-    padding: 10px;
-    margin-left: 50px;
-}
-.eSports{
-    float: left;
-    padding: 10px;
-    margin-left: 50px;
-}
-.galgos{
-    float: left;
-    padding: 10px;
-    margin-left: 50px;
-}
-.caballos{
-    float: left;
-    padding: 10px;
-    margin-left: 50px;
-}
-.hexagono{
-    float: left;
-    text-align: center;
-    
-}
-.deportes{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden; 
-}
-.grafico{
-    width: 600px;
-    margin-top: 50px;
-} */
 .sports{
     border: 3px solid #318700;
     border-radius: 10px;
@@ -163,4 +104,117 @@ li{
 canvas{
     width: 370px;
     margin-top:20px;
+}
+}
+@media (min-width:990px){
+.selectstats{
+    
+    margin-top: 30px;
+    text-align: center;
+}
+.resume{
+    border: 3px solid #318700;
+    border-radius: 10px;
+    margin-top: 30px;
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+li{
+    list-style: none;
+    text-align: start;
+}
+.imgdpts{
+    width: 45px;
+    padding: 10px;
+}
+.cantidades{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+}
+.detalleBeneficio{
+    float: left;
+    padding: 10px;
+    margin-left: 50px;
+    color: #318700;
+    border: 1px solid; 
+    border-radius:10px;
+}
+.detallePerdidas{
+    float: left;
+    padding: 10px;
+    margin-left: 50px;
+    color: red;
+    border: 1px solid; 
+    border-radius:10px;
+}
+.ganada{
+    display: inline;
+    margin-left: 20px;
+
+}
+.perdida{
+    display: inline;
+    margin-left: 15px;
+}
+.pending{
+    display: inline;
+    margin-left: 15px;
+
+}
+.cashout{
+    display: inline;
+    margin-left: 15px;
+}
+.detallecantidades {
+    float: left;
+    padding: 10px;
+    margin-left: 50px;
+}
+.caras{
+    margin-left: 12px;
+    margin-top:5px;
+}
+.totales{
+    margin-top: 0px;
+    color:white;
+    text-align: center;
+}
+.divtot{
+    background-color: #318700;
+    border: 1px solid #318700;
+    border-radius: 5px;
+}
+.sports{
+    border: 3px solid #318700;
+    border-radius: 10px;
+    margin-top: 30px;
+    text-align: center;
+    margin-left: 20px;
+}
+.hexagono{
+    position: relative;
+    left: 350px;
+    margin-top: 30px;
+}
+.totales2{
+    margin-top: 0px;
+    color:white;
+    position: relative;
+   
+}
+.divtot2{
+    background-color: #318700;
+    border: 1px solid #318700;
+    border-radius: 5px;
+    position: relative;
+    left: 350px;
+}
+.deportes{
+    position: relative;
+    bottom: 200px;
+}
+
 }
