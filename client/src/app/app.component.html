@@ -1,28 +1,43 @@
 <clr-main-container>
-<clr-header class="header-6 barra">
+  <clr-header class="header-6 barra">
 
-        <div class="branding"*ngIf="!sessionService.user">
-            <a class="hola"[routerLink]="['']">Home</a>
-        </div>
+    <div class="branding" *ngIf="!sessionService.user">
+      <a class="hola" [routerLink]="['']">Home</a>
+    </div>
 
-        <div class="branding"*ngIf="sessionService.user">
-            
-                <!-- <clr-icon shape="coin-bag"></clr-icon> -->
-                <a [routerLink]="['/profile']">
-                        <span class="title"><img class="perfil" src="https://res.cloudinary.com/lloren27/image/upload/v1526466924/user.png"></span></a>
-                        <span class="title">Bet-Control</span>
-                        
-        <div class="header-nav lateral"[clr-nav-level]="1">
-                <a class="nav-link" [routerLink]="['/bet/new']"><span class="nav-text"><img src="https://res.cloudinary.com/lloren27/image/upload/v1526245531/outline_add_circle_outline_white_18dp.png"> Nueva Apuesta</span></a>
-                <a class="nav-link" [routerLink]="['/bets']"><span class="nav-text"><span class="appendientes">{{bets.length}}</span>Ver apuestas pendientes</span></a>
-                <a class="nav-link"[routerLink]="['/statistics']"><span class="nav-text">Resultado/Estadisticas</span></a>
-                <a class="nav-link" (click)="logout()"><span class="nav-text">Logout</span></a>
-        </div>           
-        </div>
-    
-    </clr-header>
-<link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Carter+One|Contrail+One|Graduate|Six+Caps|Viga" rel="stylesheet">
-<script src="node_modules/chart.js/src/chart.js"></script>
-<router-outlet></router-outlet>
+    <div class="branding" *ngIf="sessionService.user">
+
+
+      <!-- <clr-icon shape="coin-bag"></clr-icon> -->
+      <a [routerLink]="['/profile']">
+        <span class="title">
+          <img class="perfil" src="https://res.cloudinary.com/lloren27/image/upload/v1526466924/user.png">
+        </span>
+      </a>
+      <span class="title">Bet-Control</span>
+
+      <div class="header-nav lateral" [clr-nav-level]="1">
+        <a class="nav-link" [routerLink]="['/bet/new']">
+          <span class="nav-text">
+            <img src="https://res.cloudinary.com/lloren27/image/upload/v1526245531/outline_add_circle_outline_white_18dp.png"> Nueva Apuesta</span>
+        </a>
+
+        <a class="nav-link" [routerLink]="['/bets']">
+          <span class="nav-text">Ver apuestas pendientes</span>
+        </a>
+
+        <a class="nav-link" [routerLink]="['/statistics']">
+          <span class="nav-text">Resultado/Estadisticas</span>
+        </a>
+        <a class="nav-link" (click)="logout()">
+          <span class="nav-text">Logout</span>
+        </a>
+      </div>
+    </div>
+
+  </clr-header>
+  <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Carter+One|Contrail+One|Graduate|Six+Caps|Viga" rel="stylesheet">
+  <script src="node_modules/chart.js/src/chart.js"></script>
+  <router-outlet></router-outlet>
 
 </clr-main-container>

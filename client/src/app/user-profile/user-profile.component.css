@@ -60,3 +60,14 @@ header{
     color:white;
     border-color: white;
 }
+
+.apendientes{
+    
+    text-align:center;
+    font-family: 'Carter One', cursive;
+    margin-top: 40px;
+
+}
+p{
+    color: #318700 !important;
+}

@@ -1,11 +1,13 @@
 
 <form>
-    <h2> Añade un nuevo ingreso a tu banco</h2>
+    <h2 class="titulo"> Añade un nuevo ingreso a tu banco</h2>
+    <div class ="impreso">
     <label> Ingreso </label>
     <input type="number" [(ngModel)]="newincome" name="newincome" placeholder="€"/>
+    </div>
     <br>
     <br>
-    <div>
+    <div class="botonera">
       <button class="btn btn-success btn-sm" (click)="newMoneyincome()">Realiza tu ingreso </button>
     </div>
   </form>

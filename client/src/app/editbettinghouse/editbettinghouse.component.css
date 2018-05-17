@@ -1,4 +1,22 @@
 .titulo{
     color: #318700;
-    margin-left: 50px;
+    font-family: 'Graduate', cursive;
+    margin-bottom: 30px;
+    text-align: center;
+}
+label{
+    font-family: 'Viga';
+    color: #434642;
+    
+}
+input{
+    font-family: 'Viga';
+    color: #434642;
+   
+}
+.botonera{
+    text-align: center;
+}
+.impreso{
+    text-align: center;
 }

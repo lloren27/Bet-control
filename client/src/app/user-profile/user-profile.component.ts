@@ -3,6 +3,7 @@ import {Observable} from 'rxjs/Observable';
 import { BettinghousesService } from "../services/bettinghouses.service";
 import { SessionService } from "../services/session.service";
 import { ActivatedRoute, Router, NavigationEnd } from "@angular/router";
+import { BetsService } from "../services/bets.service";
 
 
 @Component({
@@ -15,8 +16,9 @@ export class UserProfileComponent implements OnInit {
   id:any;
   user:any
   isDataAvailable: Boolean = false;
+  bets: Array<any> = [];
 
-  constructor(public Betting:BettinghousesService,public sessionService: SessionService,public router: Router,public route: ActivatedRoute) {
+  constructor(public Bets: BetsService,public Betting:BettinghousesService,public sessionService: SessionService,public router: Router,public route: ActivatedRoute) {
 
   }
 
@@ -28,10 +30,9 @@ export class UserProfileComponent implements OnInit {
           this.bettingHouses = user.bettingHouse;
           this.isDataAvailable = true
         })
+    this.Bets.getBets(this.user).subscribe(bets => {
+      this.bets = bets
    })
-  }
-
- 
-
+  })
 }
-
+}
