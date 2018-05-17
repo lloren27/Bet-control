@@ -25,10 +25,6 @@ export class AppComponent {
   title = 'Bet-Control';
   bol:boolean = false;
   constructor(public sessionService: SessionService, public router: Router,public Bets: BetsService) {
-    // this.sessionService.userEvent.subscribe(user => {
-    //   console.log("User App Component", user)
-    // });
-
   }
 
   ngOnInit() {
@@ -36,7 +32,6 @@ export class AppComponent {
       this.user = JSON.parse(user._body);
       this.Bets.getBets(this.user).subscribe(bets => {
         this.bets = bets;
-        console.log("Holiii",bets.length)
         this.bol = true;
       })
     })

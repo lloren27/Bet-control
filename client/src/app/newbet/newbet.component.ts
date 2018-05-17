@@ -49,7 +49,7 @@ export class NewbetComponent implements OnInit {
     if (moneyBet > banco.bank) {
       this.error = "No tienes Cash disponible en esta casa de apuestas"
     } else {
-      this.Bet.addBet(userId, bettingHouse, betDescription, sport, moneyBet, bettingFee).subscribe(() => this.router.navigate(['/profile']));
+      this.Bet.addBet(userId, bettingHouse, betDescription, sport, moneyBet, bettingFee).subscribe(() => this.router.navigate(['/bets']));
     }
   }
 }

@@ -29,6 +29,9 @@
         <a class="nav-link" [routerLink]="['/statistics']">
           <span class="nav-text">Resultado/Estadisticas</span>
         </a>
+        <a class="nav-link" [routerLink]="['/matchs/:id']">
+          <span class="nav-text">Partidos</span>
+        </a>
         <a class="nav-link" (click)="logout()">
           <span class="nav-text">Logout</span>
         </a>
@@ -36,6 +39,7 @@
     </div>
 
   </clr-header>
+  <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Codystar|Press+Start+2P" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Carter+One|Contrail+One|Graduate|Six+Caps|Viga" rel="stylesheet">
   <script src="node_modules/chart.js/src/chart.js"></script>
   <router-outlet></router-outlet>

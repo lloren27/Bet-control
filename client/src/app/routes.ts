@@ -22,6 +22,6 @@ export const routes: Routes = [
   { path: "bettingHouse/new", component: NewbettinghouseComponent },
   { path: "bettingHouse/edit/:id", component: EditbettinghouseComponent },
   { path: "statistics", component: StatisticsComponent },
-  { path: "matchs", component: MatchsComponent },
+  { path: "matchs/:id", component: MatchsComponent },
   { path: '**', redirectTo: '' },
 ];

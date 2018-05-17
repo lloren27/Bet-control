@@ -35,9 +35,9 @@ export class StatisticsComponent implements OnInit {
   pending: Array<any> = [];
   wins: Array<any> = [];
   totals: Array<any> = [];
-  dineroApostado: number = 0;
-  ganadas: number = 0;
-  tCashout:number=0;
+  dineroApostado: any = 0;
+  ganadas: any = 0;
+  tCashout:any=0;
   tganado:any;
   beneficioreal:any;
   public pieChartLabels:string[] = ['Gastado', 'Ingresado', 'Beneficio Neto'];
@@ -75,7 +75,7 @@ export class StatisticsComponent implements OnInit {
       this.Bets.getWinBets(this.user).subscribe(wins => {
         this.wins = wins
         this.wins.forEach (e => {
-          this.ganadas += (Number(e.moneyBet) * Number(e.bettingFee))
+          this.ganadas += e.totalGain
         })
       });
       ///////////////////////////////Devuelve el dinero ganado por CashOut//////////////////  
@@ -104,16 +104,22 @@ export class StatisticsComponent implements OnInit {
 
         this.totals.forEach (e => {
           this.dineroApostado += e.moneyBet 
+          this.tCashout === 0 ? this.tganado = this.ganadas : this.tganado = this.ganadas + this.tCashout
+            
+         
           
-          this.tganado = this.ganadas + this.tCashout
-          this.tganado = this.tganado.toFixed(2);
-          this.beneficioreal = ((this.tganado-this.dineroApostado).toFixed(2))
+          // this.tganado = this.tganado.toFixed(2);
 
-          this.pieChartData= [this.dineroApostado,this.tganado,this.beneficioreal]
+          this.beneficioreal = (((this.ganadas + this.tCashout)-this.dineroApostado).toFixed(2))
+
+          this.pieChartData= [this.dineroApostado,(this.ganadas + this.tCashout),(((this.ganadas + this.tCashout)-this.dineroApostado).toFixed(2))]
+          console.log (this.pieChartData)
           
           this.polarAreaChartData= [this.futbol.length, this.baloncesto.length, this.tenis.length, this.f1.length, this.motos.length, this.golf.length, this.eSports.length,this.galgos.length,this.caballos.length]
           
+
         })
+        
       });
     });
   }

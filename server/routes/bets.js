@@ -5,6 +5,7 @@ const BettingHouse = require('../models/BettingHouse');
 const User = require('../models/User');
 const crud = require('./crud');
 const _ = require("lodash");
+const api = require('sports-live');
 const fields = Object.keys(_.omit(Bet.schema.paths, ["__v", "_id"]));
 
 
@@ -54,13 +55,9 @@ router.get("/detail/:id", (req, res, next) => {
             })
         })
       })
-      //.catch(e => next(e));
+      
   });
-// Updatebank  
-// router.post("/newbet/:id", (req, res, next) => {
-//   const betId = req.params.id;
-  
- // })
+
 
 // Certificate Winnerbet
 router.post("/certificatedBetWin/:id", (req, res, next) => {
@@ -82,6 +79,9 @@ router.post("/certificatedBetWin/:id", (req, res, next) => {
           const update = {
             bank: newbank
           };
+          const update2 = {
+            totalGain: totalGain
+          };
           //console.log("UPDATE", update)
           BettingHouse.findByIdAndUpdate(bettingHouseId, update).then(bettinghouse => {
             bettinghouse.bank = newbank;
@@ -89,7 +89,8 @@ router.post("/certificatedBetWin/:id", (req, res, next) => {
             Bet.findByIdAndUpdate(betId, update1).then(bet => {
               bet.status = update1.status
               console.log("WINSTATUS", bet)
-
+            Bet.findByIdAndUpdate(betId, update2).then(bet => {
+                bet.totalGain = update2.totalGain
               return res.json(`Has ganado la apuesta , ingresas ${totalGain}€ `)
             })
           })
@@ -194,8 +195,23 @@ router.get('/cashout/:id', (req, res) => {
       })
     });
 
+
+router.get('/data/:id', (req, res, next) => {
+  var deporte = req.params.id
+  console.log(deporte)
+  api.getAllMatches(deporte,function(err,matches){
+    if (err) {
+      
+      console.log(err.message);
+      return res.status(500).json(err);
+      } else {
+        
+      console.log(matches);
+      return res.status(200).json(matches);
+    }
+  });
+
+});
+})
+
 module.exports = router;
-
-
-///Si es lose no actualiza nada, solo cambia la prop del si se ha resuelto o no la apuesta. True / False
-///Si le da a ganar le mandamos las instrucciones aqui

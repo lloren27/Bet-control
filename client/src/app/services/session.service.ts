@@ -9,7 +9,6 @@ export class SessionService {
 
   BASE_URL = environment.BASEURL;
   user: any;
-  //userEvent: EventEmitter<any> = new EventEmitter();
   options: any = { withCredentials: true };
 
   constructor(private http: Http) {
@@ -22,7 +21,6 @@ export class SessionService {
 
   handleUser(user?: object) {
     this.user = user;
-    //this.userEvent.emit(this.user);
     return this.user;
   }
 

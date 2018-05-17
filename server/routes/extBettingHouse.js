@@ -32,20 +32,12 @@ router.post("/new", (req, res, next) => {
       console.log(err);
       return res.status(500).json({message: "Ha habido un error"});
     } else {
-      //User.findByIdAndUpdate(req.user.id, { $push: { bettinghouse: bettinghouse._id } })
-      // User.findByIdAndUpdate(req.user.id,
-      //   { $push: { bettinghouse: pepe._id } } , { new: true }
-      // )
       User.findById(req.user.id).then((user)=> {
         console.log(user)
         user.bettingHouse.push(bettinghouse._id);
         user.save();
         res.status(200).json(user)
       })
-      // .then((user) => {
-      //   console.log("JESUS AMEN DOMINGO", user)
-      //   res.status(200).json()
-      // });
     }
   });
 });

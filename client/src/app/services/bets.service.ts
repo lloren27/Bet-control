@@ -35,8 +35,6 @@ export class BetsService {
     return this.http
       .post(`${this.BASE_URL}/api/bet/newbet`, newBet, this.options)
       .map(res => res.json());
-        //this.router.navigate(['/bets']);
-      //});
   }
   winBet(id) {
     return this.http
@@ -66,24 +64,30 @@ export class BetsService {
 
   }
   getWinBets(user) {
-    // console.log(user)
+    
     return this.http.get(`${this.BASE_URL}/api/bet/win/${user._id}`,this.options )
       .map((res) => res.json());
   }
   getLostBets(user) {
-    // console.log(user)
+    
     return this.http.get(`${this.BASE_URL}/api/bet/lost/${user._id}`,this.options )
       .map((res) => res.json());
   }
   getCashOutBets(user) {
-    // console.log(user)
+    
     return this.http.get(`${this.BASE_URL}/api/bet/cashout/${user._id}`,this.options )
       .map((res) => res.json());
   }
   getTotalBets(user) {
-    // console.log(user)
+    
     return this.http.get(`${this.BASE_URL}/api/bet/total/${user._id}`,this.options )
       .map((res) => res.json());
   }
+  getMatchs(sport) {
+    
+    return this.http.get(`${this.BASE_URL}/api/bet/data/${sport}`,this.options )
+      .map((res) => res.json());
+  }
+
 
 }

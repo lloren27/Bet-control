@@ -1,3 +1,21 @@
-<p>
-  matchs works!
-</p>
+<div class= "entradilla">
+  <p class="frase">Selecciona un deporte para ver los ultimos resultados</p>
+  <button class="btn btn-success btn-sm jose"(click)="listMatches(select.value)">ver Partidos </button>
+  <select #select>
+      <option *ngFor="let e of sports" [value]="e">
+        <p>{{e}}</p>
+      </option>
+    </select>
+</div>
+<div *ngFor="let e of matchs">
+  <div class="partido"> 
+    <h3 class="marcador">Marcador<br>
+     {{e.score}}
+    </h3><h1 class="equipos">{{e.team1}} vs {{e.team2}}</h1> 
+  <p class="estado">Estado del partido : {{e.currentStatus}}</p>
+  
+ 
+  </div>
+  
+</div>
+

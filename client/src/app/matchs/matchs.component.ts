@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatchService } from "../services/match.service";
+import { BetsService } from "../services/bets.service";
+import { Router } from '@angular/router';
+import { SessionService } from "../services/session.service";
+
 
 @Component({
   selector: 'app-matchs',
@@ -8,16 +11,22 @@ import { MatchService } from "../services/match.service";
 })
 export class MatchsComponent implements OnInit {
   matchs:any;
+  id:any;
+  sports:any;
 
-  constructor(public Match: MatchService) { }
+  constructor(public Bet: BetsService) { }
 
   ngOnInit() {
-
-    this.Match.getfixtures().subscribe(matchs => {
+    this.sports = ['soccer', 'basketball', 'baseball', 'tennis','handball']
+  
+    
+  }
+  
+  listMatches(sport){
+    this.Bet.getMatchs(sport).subscribe(matchs => {
       this.matchs = matchs; 
       console.log (matchs)
-      });
-    
+    });
   }
 
 }

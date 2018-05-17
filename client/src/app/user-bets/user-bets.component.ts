@@ -55,13 +55,12 @@ export class UserBetsComponent implements OnInit {
               this.card.push(a)
             }
             })
-            console.log("PWPW",this.card)
+            
             this.flag = true
             console.log(this.flag)
           })
           
   
-          //console.log("APUESTAS", bets)
           this.bets.forEach(e => {
             this.fechas = e.created_at
   
@@ -71,13 +70,12 @@ export class UserBetsComponent implements OnInit {
   
             this.total = [this.dia,this.mes,this.año]
   
-            // console.log(this.total)
-            // console.log(typeof this.fechas)
+            
   
             
           });
       })
-      // var pepe = []
+      
      
 
       });
@@ -87,7 +85,7 @@ export class UserBetsComponent implements OnInit {
         this.bettingHouses.forEach (e =>{
           this.bettingHousesName = e.name 
 
-          //console.log (this.bettingHousesName)
+         
 
 
         })
