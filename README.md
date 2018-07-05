@@ -23,4 +23,4 @@ También se ofrece una estadistica de apuestas por deporte.
 
 El ultimo apartado de la app muestra resultados de eventos deportivos por deporte , para verificar tus apuestas deportivas.
 
-Puedes ver esta app en bet-control.herokuapp.com 
+Puedes ver esta app en https://bet-control.herokuapp.com 
