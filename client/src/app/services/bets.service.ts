@@ -14,7 +14,6 @@ export class BetsService {
 
 
   getBets(user) {
-    console.log(this.BASE_URL)
     return this.http.get(`${this.BASE_URL}/api/bet/${user._id}`,this.options )
       .map((res) => res.json());
   }
@@ -64,31 +63,25 @@ export class BetsService {
 
   }
   getWinBets(user) {
-    
     return this.http.get(`${this.BASE_URL}/api/bet/win/${user._id}`,this.options )
       .map((res) => res.json());
   }
   getLostBets(user) {
-    
     return this.http.get(`${this.BASE_URL}/api/bet/lost/${user._id}`,this.options )
       .map((res) => res.json());
   }
   getCashOutBets(user) {
-    
     return this.http.get(`${this.BASE_URL}/api/bet/cashout/${user._id}`,this.options )
       .map((res) => res.json());
   }
   getTotalBets(user) {
-    
     return this.http.get(`${this.BASE_URL}/api/bet/total/${user._id}`,this.options )
       .map((res) => res.json());
   }
   getMatchs(sport) {
-    
     return this.http.get(`${this.BASE_URL}/api/bet/data/${sport}`,this.options )
       .map((res) => res.json());
   }
 
 
 }
-// aqui falla el json 

@@ -71,3 +71,6 @@ header{
 p{
     color: #318700 !important;
 }
+.deleteIcon{
+    cursor: pointer;
+}

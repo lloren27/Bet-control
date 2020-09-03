@@ -17,22 +17,27 @@ export class UserProfileComponent implements OnInit {
   user:any
   isDataAvailable: Boolean = false;
   bets: Array<any> = [];
+  wins:any;
 
   constructor(public Bets: BetsService,public Betting:BettinghousesService,public sessionService: SessionService,public router: Router,public route: ActivatedRoute) {
 
   }
 
   ngOnInit() {
-   this.sessionService.isLoggedIn().subscribe((user)=>{
-    this.user = JSON.parse(user._body);
-    this.Betting.getBettingHouses(this.user).subscribe(user =>{
-          this.user = user;
-          this.bettingHouses = user.bettingHouse;
-          this.isDataAvailable = true
-        })
-    this.Bets.getBets(this.user).subscribe(bets => {
-      this.bets = bets
-   })
-  })
-}
+    this.sessionService.isLoggedIn().subscribe((user) => {
+      this.user = JSON.parse(user._body);
+      this.Betting.getBettingHouses(this.user).subscribe(user => {
+        this.user = user;
+        this.bettingHouses = user.bettingHouse;
+        this.isDataAvailable = true
+      })
+      this.Bets.getBets(this.user).subscribe(bets => { this.bets = bets })
+    })
+
+
+  }
+  deleteBetting(id) {
+    this.Betting.deleteBettingHouse(id).subscribe(() => location.reload(true))
+  }
+  
 }

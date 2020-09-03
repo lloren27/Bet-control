@@ -11,21 +11,17 @@ const fields = Object.keys(_.omit(Bet.schema.paths, ["__v", "_id"]));
 
 //listar las apuestas pendientes;
 router.get('/:id', (req, res) => {
-  console.log(req.params.id)
   const user = req.params.id
     Bet.find({
       userId: user,status:"Pending"
     })
     .populate("bettingHouse")
     .then(bets => {
-      //Traigo las apuestas que tienen ese betting house
-      console.log(bets)
       return res.status(200).json(bets);
     })
   });
 // detalles de cada apuesta 
 router.get("/detail/:id", (req, res, next) => {
-  console.log("Recoge_este",req.params.id)
   Bet.findById(req.params.id)
     .then(bet => res.json(bet))
     .catch(e => next(e));
@@ -48,8 +44,6 @@ router.get("/detail/:id", (req, res, next) => {
               };
               BettingHouse.findByIdAndUpdate(bettingHouseId, update).then(bettinghouse => {
                 bettinghouse.bank = newbank;
-                console.log("NEW", bettinghouse)
-    
                 return res.json(`Tu apuesta se ha realizado, el saldo de tu cuenta es ${newbank}`);
               })
             })
@@ -70,11 +64,8 @@ router.post("/certificatedBetWin/:id", (req, res, next) => {
       const bettingHouseId = bet.bettingHouse
       BettingHouse.findById(bettingHouseId)
         .then(bettinghouse => {
-
-          //console.log("2", bettinghouse)
           const totalGain = bet.moneyBet * bet.bettingFee
           const newbank = bettinghouse.bank + (totalGain)
-          //console.log(newbank)
           const bank = newbank;
           const update = {
             bank: newbank
@@ -82,13 +73,10 @@ router.post("/certificatedBetWin/:id", (req, res, next) => {
           const update2 = {
             totalGain: totalGain
           };
-          //console.log("UPDATE", update)
           BettingHouse.findByIdAndUpdate(bettingHouseId, update).then(bettinghouse => {
             bettinghouse.bank = newbank;
-            console.log("WIN", bettinghouse)
             Bet.findByIdAndUpdate(betId, update1).then(bet => {
               bet.status = update1.status
-              console.log("WINSTATUS", bet)
             Bet.findByIdAndUpdate(betId, update2).then(bet => {
                 bet.totalGain = update2.totalGain
               return res.json(`Has ganado la apuesta , ingresas ${totalGain}€ `)
@@ -109,7 +97,6 @@ router.post("/certificatedCashOut/:id", (req, res, next) => {
     .then(bet => {
       const bettingHouseId = bet.bettingHouse
       const newbank = (parseInt(bet.bettingHouse.bank) + parseInt(cashOut))
-      //console.log(newbank)
       const update = {
         bank: parseInt(newbank)
       };
@@ -119,10 +106,8 @@ router.post("/certificatedCashOut/:id", (req, res, next) => {
       Bet.findByIdAndUpdate(betId, update1).then(bet => {
         bet.status = update1.status
         // bet.parcialGain = upadate2.parcialGain
-        console.log("CASH OUT STATUS", bet)
         BettingHouse.findByIdAndUpdate(bettingHouseId, update).then(bettinghouse => {
           bettinghouse.bank = update.bank;
-          console.log("CASH OUT", bettinghouse)
           Bet.findByIdAndUpdate(betId, update2).then(bet => {
             bet.parcialGain = update2.parcialGain
           return res.json(`Has retirado tu apuesta antes de tiempo y has ingresado ${cashOut}`)
@@ -139,58 +124,47 @@ router.post("/certificatedFailed/:id", (req, res, next) => {
     status: "Lost"
   }
   Bet.findByIdAndUpdate(betId, update).then(bet => {
-    console.log(bet, update)
     bet.status = update.status
-    console.log("LOSE", bet)
-
     return res.json(`Has fallado la apuesta`)
   }).catch(e => console.log(e))
 
 })
 //Contador de APUESTAS GANADAS;
 router.get('/win/:id', (req, res) => {
-  console.log(req.params.id)
   const user = req.params.id
     Bet.find({
       userId: user,status:"Win"
     })
     .then(bets => {
-      console.log(bets)
       return res.status(200).json(bets);
     })
   });
 //Contador de APUESTAS PERDIDAS;
 router.get('/lost/:id', (req, res) => {
-  console.log(req.params.id)
   const user = req.params.id
     Bet.find({
       userId: user,status:"Lost"
     })
     .then(bets => {
-      console.log(bets)
       return res.status(200).json(bets);
     })
   });
   //Contador de APUESTAS CASHOUT;
 router.get('/cashout/:id', (req, res) => {
-  console.log(req.params.id)
   const user = req.params.id
     Bet.find({
       userId: user,status:"Cash Out"
     })
     .then(bets => {
-      console.log(bets)
       return res.status(200).json(bets);
     })
   });
   router.get('/total/:id', (req, res) => {
-    console.log(req.params.id)
     const user = req.params.id
       Bet.find({
         userId: user
       })
       .then(bets => {
-        console.log(bets)
         return res.status(200).json(bets);
       })
     });
@@ -198,7 +172,6 @@ router.get('/cashout/:id', (req, res) => {
 
 router.get('/data/:id', (req, res, next) => {
   var deporte = req.params.id
-  console.log(deporte)
   api.getAllMatches(deporte,function(err,matches){
     if (err) {
       

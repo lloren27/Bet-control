@@ -34,6 +34,11 @@ export class BettinghousesService {
       .post(`${this.BASE_URL}/api/bettingHouse/income/new`, newBettingHouse, this.options)
       .map((res) => res.json());
   }
+  deleteBettingHouse(id){
+    return this.http.delete(`${this.BASE_URL}/api/bettingHouse/${id}`,this.options)
+      .map((res) => res.json());
+  }
+  
 
 }
 

@@ -18,7 +18,6 @@ router.put("/:id", (req, res, next) => {
   });
 })
 router.post("/new", (req, res, next) => {
-  var pepe;
   const newBettingHouse = new BettingHouse({
     name: req.body.name,
     user: req.user.id,
@@ -33,7 +32,6 @@ router.post("/new", (req, res, next) => {
       return res.status(500).json({message: "Ha habido un error"});
     } else {
       User.findById(req.user.id).then((user)=> {
-        console.log(user)
         user.bettingHouse.push(bettinghouse._id);
         user.save();
         res.status(200).json(user)

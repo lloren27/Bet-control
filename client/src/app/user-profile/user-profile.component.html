@@ -12,6 +12,7 @@
         <li><h3 class="nombre"> {{ bhouse.name }} </h3></li>
         <li><h3 class="dinero">{{ bhouse.bank.toFixed(2) }}€ </h3></li>
         <li><div class="ingreso"><a [routerLink]="['/bettingHouse/edit', bhouse._id]"> Realiza un ingreso<img class="income" src="https://res.cloudinary.com/lloren27/image/upload/v1526469595/man-and-cashier-machine_1.png"></a></div></li>
+        <a class="deleteIcon"(click)="deleteBetting(bhouse._id)"><img src="https://res.cloudinary.com/lloren27/image/upload/v1526927954/x-button.png"></a>
       </ul>
     </div>
   </div>

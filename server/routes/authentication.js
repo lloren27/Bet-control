@@ -75,6 +75,7 @@ router.get('/logout', (req, res) => {
         return res.status(400).json({message:"You should loggin first"});
     }
 });
+
 router.get("/profile/:id", (req, res, next) => {
     const userId = req.params.id;
     User.findById(userId)

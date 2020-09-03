@@ -105,16 +105,11 @@ export class StatisticsComponent implements OnInit {
         this.totals.forEach (e => {
           this.dineroApostado += e.moneyBet 
           this.tCashout === 0 ? this.tganado = this.ganadas : this.tganado = this.ganadas + this.tCashout
-            
-         
-          
           // this.tganado = this.tganado.toFixed(2);
 
           this.beneficioreal = (((this.ganadas + this.tCashout)-this.dineroApostado).toFixed(2))
 
           this.pieChartData= [this.dineroApostado,(this.ganadas + this.tCashout),(((this.ganadas + this.tCashout)-this.dineroApostado).toFixed(2))]
-          console.log (this.pieChartData)
-          
           this.polarAreaChartData= [this.futbol.length, this.baloncesto.length, this.tenis.length, this.f1.length, this.motos.length, this.golf.length, this.eSports.length,this.galgos.length,this.caballos.length]
           
 
